@@ -57,7 +57,7 @@ export default function Header() {
               <div className="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                  <Nav.Link as={NavLink} exact to="/" activeClassName="active">Home
+                  <Nav.Link as={NavLink} exact='true' to="/" activeclassname="active">Home
                       </Nav.Link>
                   </li>
                   <li className="nav-item">
@@ -67,9 +67,11 @@ export default function Header() {
                     </a>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <a href="#" className="nav-link">
+                      <Nav.Link as={NavLink} exact='true' to="/product" className="nav-link">HoneyMoon Tours
+                      </Nav.Link>
+                        {/* <a href="#" className="nav-link">
                           HoneyMoon Tours
-                        </a>
+                        </a> */}
                       </li>
                       <li className="nav-item">
                         <a href="#" className="nav-link">
@@ -84,11 +86,11 @@ export default function Header() {
                     </ul>
                   </li>
                   <li className="nav-item">
-                  <Nav.Link as={NavLink} exact to="/">About us
+                  <Nav.Link as={NavLink} exact='true' to="/">About us
                       </Nav.Link>
                   </li>
                   <li className="nav-item">
-                  <Nav.Link as={NavLink} exact to="/contact">Contact us
+                  <Nav.Link as={NavLink} exact='true' to="/contact">Contact us
                       </Nav.Link>
                   </li>
                   
