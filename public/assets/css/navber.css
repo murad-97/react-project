@@ -1417,5 +1417,6 @@
 }
 
 .mean-menu {
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 25%;
 }
