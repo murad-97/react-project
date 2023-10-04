@@ -1,8 +1,37 @@
-import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom'; 
+import React, { useState, useEffect } from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
+
 export default function Header() {
-    
+  const [userName, setUserName] = useState('');
+  const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+
+  const handleLogout = () => {
+    sessionStorage.setItem('isLoggedIn', 'false');
+    window.location.href = '/';
+  };
+
+  useEffect(() => {
+    const loggedInUserEmail = sessionStorage.getItem('userEmail'); // Assuming user's email is stored in sessionStorage
+    if (loggedInUserEmail) {
+      const apiUrl = `https://651a6344340309952f0d333a.mockapi.io/user?email=${loggedInUserEmail}`;
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.length > 0) {
+            const user = data[0]; // Assuming the API response is an array containing a single user object
+            setUserName(user.name);
+          } else {
+            console.error('User not found');
+          }
+        })
+        .catch((error) => {
+          console.error('Error fetching user data:', error);
+        });
+    }
+  }, []);
+  
+  
   return (
     <>
     <header className="main_header_arae">
@@ -52,7 +81,6 @@ export default function Header() {
                       <Nav.Link as={NavLink} exact='true' to="/product/indivisualtour/" className="nav-link">Individual Tours
                       </Nav.Link>
                       </li>
-                      {/* Rest of the categories */}
                     </ul>
                   </li>
                   <li className="nav-item">
@@ -67,44 +95,65 @@ export default function Header() {
                  
                   
                 </ul>
+
                 <div className="others-options d-flex align-items-center">
-                
-                  <div className="option-item">
-                    <a href="become-vendor.html" className="btn  btn_navber">Sign in</a>
-                  </div>
-                  <div className="option-item">
-                    <a href="become-vendor.html" className="btn  btn_navber">Register</a>
+          {isLoggedIn ? (
+            <>
+              <div className="option-item">Welcome, {userName}</div>
+              <div className="option-item">
+                <button className="btn btn_navber" onClick={handleLogout}>
+                  Log Out
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="option-item">
+                <NavLink to="/login" className="btn btn_navber">
+                  Login
+                </NavLink>
+              </div>
+              <div className="option-item">
+                <NavLink to="/register" className="btn btn_navber">
+                  Sign Up
+                </NavLink>
+              </div>
+                      </>
+                    )}
                   </div>
                 </div>
-              </div>
-            </nav>
-          </div>
-        </div>
-        <div className="others-option-for-responsive">
-          <div className="container">
-            <div className="dot-menu">
-              <div className="inner">
-                <div className="circle circle-one"></div>
-                <div className="circle circle-two"></div>
-                <div className="circle circle-three"></div>
-              </div>
+              </nav>
             </div>
+          </div>
+          <div className="others-option-for-responsive">
             <div className="container">
-              <div className="option-inner">
-                <div className="others-options d-flex align-items-center">
-                  <div className="option-item">
-                    <a href="#" className="search-box"><i className="fas fa-search"></i></a>
-                  </div>
-                  <div className="option-item">
-                    <a href="contact.html" className="btn  btn_navber">Get a free quote</a>
+              <div className="dot-menu">
+                <div className="inner">
+                  <div className="circle circle-one"></div>
+                  <div className="circle circle-two"></div>
+                  <div className="circle circle-three"></div>
+                </div>
+              </div>
+              <div className="container">
+                <div className="option-inner">
+                  <div className="others-options d-flex align-items-center">
+                    <div className="option-item">
+                      <a href="#" className="search-box">
+                        <i className="fas fa-search"></i>
+                      </a>
+                    </div>
+                    <div className="option-item">
+                      <a href="contact.html" className="btn btn_navber">
+                        Get a free quote
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
       
       <Outlet />
       </>
