@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    return (
-        <>
-          
+  const navigate = useNavigate();
+  const [loginData, setLoginData] = useState({ email: "", password: "" });
+  const [message, setMessage] = useState("");
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData({ ...loginData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("https://651a6344340309952f0d333a.mockapi.io/hasan");
+      const data = await response.json();
+
+      const user = data.find((user) => user.email === loginData.email && user.password === loginData.password);
+
+      if (user) {
+        setMessage("Login successful!");
+        sessionStorage.setItem("isLoggedIn", true);
+
+        navigate("/");
+      } else {
+        setMessage("Invalid email or password. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      setMessage("Error during login. Please try again later.");
+    }
+  };
+  return (
+    <>
     <div class="search-overlay">
         <div class="d-table">
             <div class="d-table-cell">
@@ -22,9 +53,7 @@ const Login = () => {
                 </div>
             </div>
         </div>
-    </div>
-
-    
+    </div> 
     <section id="common_banner">
         <div class="container">
             <div class="row">
@@ -40,72 +69,59 @@ const Login = () => {
             </div>
         </div>
     </section>
-
-
-    <section id="common_author_area" class="section_padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="common_author_boxed">
-                        <div class="common_author_heading">
-                            <h3>Login your account</h3>
-                            <h2>Logged in to stay in touch</h2>
-                        </div>
-                        <div class="common_author_form">
-                            <form action="#" id="main_author_form">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Enter user name" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Enter password" />
-                                    <a href="forgot-password.html">Forgot password?</a>
-                                </div>
-                                <div class="common_form_submit">
-                                    <button class="btn btn_theme btn_md">Log in</button>
-                                </div>
-                                <div class="have_acount_area">
-                                    <p>Dont have an account? <a href="register.html">Register now</a></p>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
    
-    <section id="cta_area">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <div class="cta_left">
-                        <div class="cta_icon">
-                            <img src="assets/img/common/email.png" alt="icon"/>
-                        </div>
-                        <div class="cta_content">
-                            <h4>Get the latest news and offers</h4>
-                            <h2>Subscribe to our newsletter</h2>
-                        </div>
-                    </div>
+      <section id="common_author_area" className="section_padding">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 offset-lg-2">
+              <div className="common_author_boxed">
+                <div className="common_author_heading">
+                  <h3>Login your account</h3>
+                  <h2>Logged in to stay in touch</h2>
                 </div>
-                <div class="col-lg-5">
-                    <div class="cat_form">
-                        <form id="cta_form_wrappper">
-                            <div class="input-group"><input type="text" class="form-control"
-                                    placeholder="Enter your mail address"/><button class="btn btn_theme btn_md"
-                                    type="button">Subscribe</button></div>
-                        </form>
+                <div className="common_author_form">
+                <form onSubmit={handleSubmit} id="main_author_form">
+                    <div className="form-group">
+                      <input
+                        type="email"
+                        className="form-control"
+                        placeholder="Enter email"
+                        name="email"
+                        value={loginData.email}
+                        onChange={handleInputChange}
+                        required
+                      />
                     </div>
+                    <div className="form-group">
+                      <input
+                        type="password"
+                        className="form-control"
+                        placeholder="Enter password"
+                        name="password"
+                        value={loginData.password}
+                        onChange={handleInputChange}
+                        required />
+                    </div>
+                    <div className="common_form_submit">
+                      <button className="btn btn_theme btn_md" type="submit">
+                        Log in
+                      </button>
+                    </div>
+                    {message && <p style={{ color: 'red' }}>{message}</p>}
+                    <div className="have_acount_area">
+                      <p>
+                        Dont have an account? <a href="register">Register now</a>
+                      </p>
+                    </div>
+                  </form>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
-
-    
-     
-        </>
-    );
-}
+      </section>
+    </>
+  );
+};
 
 export default Login;
