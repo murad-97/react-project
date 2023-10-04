@@ -5,7 +5,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/index-3"
 import Login from "./pages/login/login"
 import Master from "./layouts/master"
-import Product from "./pages/products/tour"
+import Honeymoon from "./pages/products/honeymoon"
+import Grouptour from "./pages/products/grouptour"
+import Indivisualtour from "./pages/products/indivisualtour"
 import Profile from "./pages/profile/mainprofile"
 import Booking from "./pages/profile/tour-booking"
 import ProfileInfo from "./pages/profile/profile"
@@ -20,7 +22,9 @@ function App() {
   <Route path="booking" element={<Booking />} />
 </Route>
       <Route index element={<Home />} />
-      <Route path="/product" element={<Product />} />
+      <Route path="/product/honeymoon/" element={<Honeymoon />} />
+      <Route path="/product/grouptour/" element={<Grouptour />} />
+      <Route path="/product/indivisualtour/" element={<Indivisualtour />} />
     </Route>
       <Route path="login" element={<Login />} />
 

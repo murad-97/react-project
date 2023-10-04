@@ -38,21 +38,19 @@ export default function Header() {
                     </a>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                      <Nav.Link as={NavLink} exact='true' to="/product" className="nav-link">HoneyMoon Tours
+                      <Nav.Link as={NavLink} exact='true' to="/product/honeymoon/" className="nav-link">HoneyMoon Tours
                       </Nav.Link>
                         {/* <a href="#" className="nav-link">
                           HoneyMoon Tours
                         </a> */}
                       </li>
                       <li className="nav-item">
-                        <a href="#" className="nav-link">
-                          Group Tours
-                        </a>
+                      <Nav.Link as={NavLink} exact='true' to="/product/grouptour/" className="nav-link">Group Tours
+                      </Nav.Link>
                       </li>
                       <li className="nav-item">
-                        <a href="#" className="nav-link">
-                          Individual Tours
-                        </a>
+                      <Nav.Link as={NavLink} exact='true' to="/product/indivisualtour/" className="nav-link">Individual Tours
+                      </Nav.Link>
                       </li>
                       {/* Rest of the categories */}
                     </ul>
