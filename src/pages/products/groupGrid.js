@@ -15,30 +15,26 @@ export default function ProductGrid() {
       });
   }, []);
 
-  // Filter the category based on the provided categoryId
+  // Set the desired categoryId to filter the category
   const categoryId = "2"; // You can change this to the desired category ID
-  const filteredCategory = categoryData.find((category) => category.id === categoryId);
 
-  if (!filteredCategory) {
-    // Handle the case where the category is not found
-    return <div>Category not found</div>;
-  }
+  // Use optional chaining and nullish coalescing to handle the case when category is not found
+  const selectedCategory = categoryData.find((category) => category.id === categoryId);
+  const tours = selectedCategory?.tour ?? [];
 
   return (
     <div className="col-lg-9">
       <div className="row">
-        {filteredCategory.tour.map((tour) => (
+        {tours.map((tour) => (
           <div key={tour.name} className="col-lg-4 col-md-6 col-sm-6 col-12">
             <div className="theme_common_box_two img_hover">
               <div className="theme_two_box_img">
                 <a href="tour-details.html">
-                  <img
-                    src={tour.image1}
-                    alt="img"
-                  />
+                  <img src={tour.image1} alt="img" />
                 </a>
                 <p>
-                  <i className="fas fa-map-marker-alt"></i>{tour.location}
+                  <i className="fas fa-map-marker-alt"></i>
+                  {tour.location}
                 </p>
               </div>
               <div className="theme_two_box_content">
@@ -50,7 +46,7 @@ export default function ProductGrid() {
                   <span className="review_count">({tour.n_reviews} reviews)</span>
                 </p>
                 <h3>
-                 <span>Price starts from</span> ${tour.price} 
+                  <span>Price starts from</span> ${tour.price}
                 </h3>
               </div>
             </div>
