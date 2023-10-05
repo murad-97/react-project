@@ -24,7 +24,6 @@ export default function ProductGrid() {
   // Use optional chaining and nullish coalescing to handle the case when category is not found
   const selectedCategory = categoryData.find((category) => category.id === categoryId);
   const tours = selectedCategory?.tour ?? [];
-console.log(tours[0]);
   return (
     <div className="col-lg-9">
       <div className="row">
