@@ -93,7 +93,7 @@ export default function Header() {
                     </li>
                     <li className="nav-item">
                       <a href="#" className="nav-link">
-                        Categories
+                        Destinations
                         <i className="fas fa-angle-down"></i>
                       </a>
                       <ul className="dropdown-menu">
@@ -115,7 +115,7 @@ export default function Header() {
                         to="/product/2"
                         activeClassName="active"
                       >
-                        Group Tours
+                        Family Tours
                       </Nav.Link>
                         
                         </li>
