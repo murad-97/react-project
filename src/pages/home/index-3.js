@@ -41,11 +41,11 @@ const Index3 = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="banner_area_three">
-                <h3 className="top_banner_three_text">Welcome to Andtour</h3>
-                <h2>Experience the world together</h2>
-                <h3 className="bottom_banner_three_text">
+                <h3 className="top_banner_three_text">Welcome to Backpack Traveler</h3>
+                <h2>Experience The World Together</h2>
+                {/* <h3 className="bottom_banner_three_text">
                   Find awesome flights, hotel, tour, car and packages
-                </h3>
+                </h3> */}
               </div>
             </div>
           </div>
