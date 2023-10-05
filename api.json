@@ -11,10 +11,10 @@
         "duration": "4 Days",
         "tour_type": "Honeymoon",
         "group_size": "2 people",
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/1430677/pexels-photo-1430677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/1320686/pexels-photo-1320686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/1450369/pexels-photo-1450369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/3601453/pexels-photo-3601453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.8,
         "n_reviews": 36,
         "valid_from": "2023-10-20",
@@ -35,7 +35,7 @@
         ],
         "price": 4500,
         "overview": "Escape to the Maldives for a 4-day honeymoon getaway in paradise. Stay in luxurious overwater bungalows with breathtaking ocean views, indulge in romantic beachfront dinners, and explore the underwater world through snorkeling. This intimate trip is perfect for couples looking to create lasting memories.",
-        "map": "<iframe src='URL_TO_MAP_IFRAME' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d80315.15774071874!2d73.11403053668147!3d-0.6254470074889451!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x24b599bfaafb7bbd%3A0x414509e181956289!2sMaldives!5e0!3m2!1sen!2sjo!4v1696489598598!5m2!1sen!2sjo' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
         "itinerary": [
           {
             "day": 1,
@@ -69,10 +69,10 @@
         "duration": "5 Days",
         "tour_type": "Honeymoon",
         "group_size": "2 people",
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/2474690/pexels-photo-2474690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/5289209/pexels-photo-5289209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/654/clouds-cloudy-agriculture-farm.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.9,
         "n_reviews": 42,
         "valid_from": "2023-11-10",
@@ -93,7 +93,7 @@
         ],
         "price": 5000,
         "overview": "Embark on a 5-day honeymoon retreat in beautiful Bali. Stay in opulent beachfront villas with private pools, explore Balinese culture and vibrant markets, and enjoy spa treatments, romantic dinners, and island adventures. This romantic getaway is perfect for couples seeking relaxation and adventure.",
-        "map": "<iframe src='URL_TO_MAP_IFRAME' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1010300.1445837809!2d113.82255500559457!3d-8.452130872124984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd141d3e8100fa1%3A0x24910fb14b24e690!2sBali%2C%20Indonesia!5e0!3m2!1sen!2sjo!4v1696491767384!5m2!1sen!2sjo' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
         "itinerary": [
           {
             "day": 1,
@@ -134,10 +134,10 @@
         "duration": "4 Days",
         "tour_type": "Honeymoon",
         "group_size": "2",
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/1791684/pexels-photo-1791684.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/307007/pexels-photo-307007.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/943507/pexels-photo-943507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.9,
         "n_reviews": 45,
         "valid_from": "2023-11-15",
@@ -158,7 +158,7 @@
         ],
         "price": 4500,
         "overview": "Experience a romantic 4-day honeymoon getaway in Spain. Explore charming cities, relax on pristine beaches, and savor exquisite Spanish cuisine. Indulge in private moments and create unforgettable memories together. Enjoy a blend of culture, relaxation, and adventure on this special journey.",
-        "map": "<iframe src='URL_TO_MAP_IFRAME' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3059294.468426183!2d-7.250684921082392!3d40.0959684748107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc42e3783261bc8b%3A0xa6ec2c940768a3ec!2sSpain!5e0!3m2!1sen!2sjo!4v1696488945812!5m2!1sen!2sjo' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
         "itinerary": [
           {
             "day": 1,
@@ -200,10 +200,10 @@
         "duration": "4 Days",
         "tour_type": "Honeymoon",
         "group_size": "2",
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/14667393/pexels-photo-14667393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/14667382/pexels-photo-14667382.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/14524357/pexels-photo-14524357.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/13675824/pexels-photo-13675824.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.8,
         "n_reviews": 38,
         "valid_from": "2023-12-05",
@@ -224,7 +224,7 @@
         ],
         "price": 5200,
         "overview": "Escape to Zanzibar for a 4-day honeymoon filled with romance and adventure. Explore pristine beaches, indulge in luxury accommodation, and create timeless memories together. Savor private beachfront dinners and romantic sunset cruises on the Spice Island.",
-        "map": "<iframe src='URL_TO_MAP_IFRAME' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126935.95414693524!2d39.14827054569349!3d-6.164417295458371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185cd0ba23b63ecb%3A0x52c848ab6efc138e!2sZanzibar%2C%20Tanzania!5e0!3m2!1sen!2sjo!4v1696489681084!5m2!1sen!2sjo' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
         "itinerary": [
           {
             "day": 1,
@@ -266,10 +266,10 @@
         "duration": "4 Days",
         "tour_type": "Honeymoon",
         "group_size": 2,
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/164041/pexels-photo-164041.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/1518500/pexels-photo-1518500.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/772686/pexels-photo-772686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.9,
         "n_reviews": 42,
         "valid_from": "2023-11-10",
@@ -290,7 +290,7 @@
         ],
         "price": 5500,
         "overview": "Escape to Greece for a 4-day honeymoon filled with romance and adventure. Discover the charm of Greek villages, unwind on golden beaches, and indulge in local flavors. Stay in a luxurious seaside villa with a private pool, and enjoy romantic sunset dinners and a private yacht cruise along the Greek coast.",
-        "map": "<iframe src='URL_TO_MAP_IFRAME' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6435801.294306177!2d19.036460023419476!3d38.03587490571631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135b4ac711716c63%3A0x363a1775dc9a2d1d!2sGreece!5e0!3m2!1sen!2sjo!4v1696489852343!5m2!1sen!2sjo' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
         "itinerary": [
           {
             "day": 1,
@@ -332,10 +332,10 @@
         "duration": "5 Days",
         "tour_type": "Honeymoon",
         "group_size": 2,
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/2422461/pexels-photo-2422461.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/7946860/pexels-photo-7946860.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/621807/pexels-photo-621807.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/3996363/pexels-photo-3996363.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.9,
         "n_reviews": 42,
         "valid_from": "2023-11-10",
@@ -356,7 +356,7 @@
         ],
         "price": 5600,
         "overview": "Escape to Italy for a 5-day honeymoon filled with romance and cultural exploration. Immerse yourself in the rich heritage of Italian cities, indulge in delectable cuisine, and stay in charming boutique hotels. Enjoy candlelit dinners and wine tasting in the heart of Italy's picturesque landscapes.",
-        "map": "<iframe src='URL_TO_MAP_IFRAME' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5773162.377268509!2d9.638879643001763!3d42.49044016794529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d4fe82448dd203%3A0xe22cf55c24635e6f!2sItaly!5e0!3m2!1sen!2sjo!4v1696489992453!5m2!1sen!2sjo' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
         "itinerary": [
           {
             "day": 1,
@@ -409,131 +409,113 @@
     "description": "There’s more to a family adventure than theme parks and resort kid’s clubs. Our carefully crafted itineraries allow you to create a memorable adventure",
     "tour": [
       {
-        "id": "1",
         "name": "Egypt Family Holiday",
         "location": "Egypt",
         "duration": "8 Days",
-        "tour_type": "",
-        "group_size": "",
-        "image1": "",
-        "image2": "",
-        "image3": "",
-        "image4": "",
-        "rating": "",
-        "n_reviewes": "",
-        "validfrom": "",
-        "validtill": "",
-        "tourdetails": [
+        "tour_type": "Group Tour",
+        "group_size": "10-15 people",
+        "image1": "https://images.pexels.com/photos/2445852/pexels-photo-2445852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://jellyquest.com/wp-content/uploads/2022/12/nile-river-facts.jpg",
+        "image3": "https://images.pexels.com/photos/10586819/pexels-photo-10586819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/15357310/pexels-photo-15357310/free-photo-of-people-near-citadel-of-qaitbay.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "rating": 4.5,
+        "n_reviews": 42,
+        "valid_from": "2023-11-15",
+        "valid_till": "2023-11-22",
+        "tour_details": [
           {
-            "name": "Egypt Family Holiday",
-            "location": "Egypt",
-            "duration": "8 Days",
-            "tour_type": "Group Tour",
-            "group_size": "10-15 people",
-            "image1": "URL_TO_IMAGE_1",
-            "image2": "URL_TO_IMAGE_2",
-            "image3": "URL_TO_IMAGE_3",
-            "image4": "URL_TO_IMAGE_4",
-            "rating": 4.5,
-            "n_reviews": 42,
-            "valid_from": "2023-11-15",
-            "valid_till": "2023-11-22",
-            "tour_details": [
-              {
-                "note": "Children below 5 years old are not allowed."
-              },
-              {
-                "note": "All meals are included in the package."
-              },
-              {
-                "note": "Accommodation provided in 4-star hotels."
-              },
-              {
-                "note": "Tour guide services are available in English, Spanish, and French."
-              }
-            ],
-            "price": 1200,
-            "overview": "Discover the wonders of ancient Egypt with your family on this 8-day group tour. Explore the pyramids, sail the Nile, and visit historic temples.",
-            "map": "<iframe src='URL_TO_GOOGLE_MAP_EMBED' width='600' height='450' frameborder='0' style='border:0' allowfullscreen></iframe>",
-            "itinerary": [
-              {
-                "day": 1,
-                "activities": [
-                  "Arrival in Cairo",
-                  "Check-in to the hotel",
-                  "Welcome dinner"
-                ]
-              },
-              {
-                "day": 2,
-                "activities": [
-                  "Visit the Pyramids of Giza",
-                  "Camel ride",
-                  "Lunch at a local restaurant",
-                  "Explore the Sphinx"
-                ]
-              },
-              {
-                "day": 3,
-                "activities": [
-                  "Flight to Luxor",
-                  "Visit Karnak Temple",
-                  "Check-in to the hotel in Luxor"
-                ]
-              },
-              {
-                "day": 4,
-                "activities": [
-                  "Hot air balloon ride over Luxor",
-                  "Explore the Valley of the Kings",
-                  "Visit Hatshepsut's Temple",
-                  "Sail on the Nile River"
-                ]
-              },
-              {
-                "day": 5,
-                "activities": [
-                  "Drive to Aswan",
-                  "Visit the High Dam",
-                  "Explore Philae Temple",
-                  "Nubian Village visit"
-                ]
-              },
-              {
-                "day": 6,
-                "activities": [
-                  "Sail on a traditional felucca boat",
-                  "Visit Elephantine Island",
-                  "Return to Luxor"
-                ]
-              },
-              {
-                "day": 7,
-                "activities": [
-                  "Flight back to Cairo",
-                  "Visit the Egyptian Museum",
-                  "Shopping at Khan El Khalili Bazaar",
-                  "Farewell dinner"
-                ]
-              },
-              {
-                "day": 8,
-                "activities": ["Departure from Cairo"]
-              }
+            "note": "Children below 5 years old are not allowed."
+          },
+          {
+            "note": "All meals are included in the package."
+          },
+          {
+            "note": "Accommodation provided in 4-star hotels."
+          },
+          {
+            "note": "Tour guide services are available in English, Spanish, and French."
+          }
+        ],
+        "price": 1200,
+        "overview": "Discover the wonders of ancient Egypt with your family on this 8-day group tour. Explore the pyramids, sail the Nile, and visit historic temples.",
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1583894.4547125218!2d34.68736895019396!3d29.054261392301626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14368976c35c36e9%3A0x2c45a00925c4c444!2z2YXYtdix!5e0!3m2!1sar!2sjo!4v1696488237138!5m2!1sar!2sjo' width='600' height='450' frameborder='0' style='border:0' allowfullscreen></iframe>",        "itinerary": [
+          {
+            "day": 1,
+            "activities": [
+              "Arrival in Cairo",
+              "Check-in to the hotel",
+              "Welcome dinner"
             ]
+          },
+          {
+            "day": 2,
+            "activities": [
+              "Visit the Pyramids of Giza",
+              "Camel ride",
+              "Lunch at a local restaurant",
+              "Explore the Sphinx"
+            ]
+          },
+          {
+            "day": 3,
+            "activities": [
+              "Flight to Luxor",
+              "Visit Karnak Temple",
+              "Check-in to the hotel in Luxor"
+            ]
+          },
+          {
+            "day": 4,
+            "activities": [
+              "Hot air balloon ride over Luxor",
+              "Explore the Valley of the Kings",
+              "Visit Hatshepsut's Temple",
+              "Sail on the Nile River"
+            ]
+          },
+          {
+            "day": 5,
+            "activities": [
+              "Drive to Aswan",
+              "Visit the High Dam",
+              "Explore Philae Temple",
+              "Nubian Village visit"
+            ]
+          },
+          {
+            "day": 6,
+            "activities": [
+              "Sail on a traditional felucca boat",
+              "Visit Elephantine Island",
+              "Return to Luxor"
+            ]
+          },
+          {
+            "day": 7,
+            "activities": [
+              "Flight back to Cairo",
+              "Visit the Egyptian Museum",
+              "Shopping at Khan El Khalili Bazaar",
+              "Farewell dinner"
+            ]
+          },
+          {
+            "day": 8,
+            "activities": ["Departure from Cairo"]
           }
         ]
       },
+
       {
         "name": "Tunis Family Adventure",
         "location": "Tunis, Tunisia",
         "duration": "4 Days",
         "tour_type": "Family Tour",
         "group_size": "8-12 people",
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/8136613/pexels-photo-8136613.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/14765462/pexels-photo-14765462.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/15277297/pexels-photo-15277297/free-photo-of-landscape-for-port.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/6460890/pexels-photo-6460890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.3,
         "n_reviews": 28,
         "valid_from": "2023-12-10",
@@ -554,8 +536,7 @@
         ],
         "price": 900,
         "overview": "Embark on a 4-day family adventure in the vibrant city of Tunis. Explore historical sites, enjoy local cuisine, and experience the rich culture of Tunisia.",
-        "map": "<iframe src='URL_TO_GOOGLE_MAP_EMBED' width='600' height='450' frameborder='0' style='border:0' allowfullscreen></iframe>",
-        "itinerary": [
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766138.745203319!2d12.9594500338002!3d33.94723407966679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x125595448316a4e1%3A0x3a84333aaa019bef!2z2KrZiNmG2LPigI4!5e0!3m2!1sar!2sjo!4v1696488488248!5m2!1sar!2sjo' width='600' height='450' frameborder='0' style='border:0' allowfullscreen></iframe>",        "itinerary": [
           {
             "day": 1,
             "activities": [
@@ -599,10 +580,10 @@
         "duration": "5 Days",
         "tour_type": "Family Tour",
         "group_size": "8-15 people",
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/2048865/pexels-photo-2048865.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://www.pexels.com/photo/turkey-flag-hanging-on-bridge-1836580/",
+        "image3": "https://images.pexels.com/photos/2325447/pexels-photo-2325447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/45189/pexels-photo-45189.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.5,
         "n_reviews": 42,
         "valid_from": "2023-11-15",
@@ -623,8 +604,7 @@
         ],
         "price": 1200,
         "overview": "Discover the beauty of Turkey on this 5-day family adventure. Visit iconic landmarks, explore ancient cities, and enjoy the diverse culture of Turkey.",
-        "map": "<iframe src='URL_TO_GOOGLE_MAP_EMBED' width='600' height='450' frameborder='0' style='border:0' allowfullscreen></iframe>",
-        "itinerary": [
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6352265.424336358!2d40.41675855945146!3d38.97669800920576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b0155c964f2671%3A0x40d9dbd42a625f2a!2z2KrYsdmD2YrYpw!5e0!3m2!1sar!2sjo!4v1696488651083!5m2!1sar!2sjo' width='600' height='450' frameborder='0' style='border:0' allowfullscreen></iframe>",        "itinerary": [
           {
             "day": 1,
             "activities": [
@@ -677,10 +657,10 @@
         "duration": "6 Days",
         "tour_type": "Family Tour",
         "group_size": "8-15 people",
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/22804/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/3731615/pexels-photo-3731615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/3560189/pexels-photo-3560189.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/415590/pexels-photo-415590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.7,
         "n_reviews": 56,
         "valid_from": "2023-12-01",
@@ -701,8 +681,7 @@
         ],
         "price": 1500,
         "overview": "Experience the beauty of Malaysia on this 6-day family adventure. Visit vibrant cities, relax on pristine beaches, and explore the diverse culture of Malaysia.",
-        "map": "<iframe src='URL_TO_GOOGLE_MAP_EMBED' width='600' height='450' frameborder='0' style='border:0' allowfullscreen></iframe>",
-        "itinerary": [
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4359061.573249223!2d116.25884124982794!3d4.167039261566404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3034d3975f6730af%3A0x745969328211cd8!2z2YXYp9mE2YrYstmK2Kc!5e0!3m2!1sar!2sjo!4v1696488834554!5m2!1sar!2sjo' width='600' height='450' frameborder='0' style='border:0' allowfullscreen></iframe>",        "itinerary": [
           {
             "day": 1,
             "activities": [
@@ -763,10 +742,10 @@
         "duration": "5 Days",
         "tour_type": "Family Tour",
         "group_size": "6-14 people",
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/1791684/pexels-photo-1791684.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/307007/pexels-photo-307007.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/943507/pexels-photo-943507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.8,
         "n_reviews": 58,
         "valid_from": "2023-12-01",
@@ -787,8 +766,7 @@
         ],
         "price": 2200,
         "overview": "Embark on a memorable 5-day family adventure in Spain! Visit iconic cities such as Madrid, Barcelona, and Seville. Enjoy guided tours of famous landmarks, explore beautiful coastlines, and immerse in the vibrant local culture. This tour is perfect for families with a mix of cultural and outdoor interests.",
-        "map": "<iframe src='URL_TO_MAP_IFRAME' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
-        "itinerary": [
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3059294.468426183!2d-7.250684921082392!3d40.0959684748107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc42e3783261bc8b%3A0xa6ec2c940768a3ec!2sSpain!5e0!3m2!1sen!2sjo!4v1696488945812!5m2!1sen!2sjo' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",        "itinerary": [
           {
             "day": 1,
             "activities": [
@@ -837,10 +815,10 @@
         "duration": "5 Days",
         "tour_type": "Family Tour",
         "group_size": "6-14 people",
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/739407/pexels-photo-739407.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/9938007/pexels-photo-9938007.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/11360325/pexels-photo-11360325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/11299625/pexels-photo-11299625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.9,
         "n_reviews": 72,
         "valid_from": "2023-11-15",
@@ -861,8 +839,7 @@
         ],
         "price": 2500,
         "overview": "Experience a magical 5-day family adventure in France! Explore the enchanting city of Paris, visit iconic landmarks like the Eiffel Tower and Louvre Museum, take a scenic drive through the picturesque Loire Valley, and relax on the beautiful beaches of the French Riviera. This tour is perfect for families looking for a mix of culture and leisure activities.",
-        "map": "<iframe src='URL_TO_MAP_IFRAME' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
-        "itinerary": [
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60241849.42929989!2d-4.786454103444355!3d22.844273040892304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54a02933785731%3A0x6bfd3f96c747d9f7!2z2YHYsdmG2LPYpw!5e0!3m2!1sar!2sjo!4v1696489395605!5m2!1sar!2sjo' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",        "itinerary": [
           {
             "day": 1,
             "activities": [
@@ -919,10 +896,10 @@
         "duration": "7 Days",
         "tour_type": "Adventure",
         "group_size": 1,
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/16444271/pexels-photo-16444271/free-photo-of-a-safari-vehicle-riding-through-the-fields.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/2862070/pexels-photo-2862070.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/625414/pexels-photo-625414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/1753207/pexels-photo-1753207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.7,
         "n_reviews": 28,
         "valid_from": "2023-10-20",
@@ -943,7 +920,7 @@
         ],
         "price": 4500,
         "overview": "Experience the ultimate adventure in South Africa with a 7-day solo tour. Dive into heart-pounding activities like safari drives, zip-lining through canopies, and hiking in stunning landscapes. Stay in cozy lodges and camps, and connect with nature while witnessing Africa's majestic wildlife up close.",
-        "map": "<iframe src='URL_TO_MAP_IFRAME' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6690846.896543204!2d22.910501972868598!3d-30.703478387856123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1c34a689d9ee1251%3A0xe85d630c1fa4e8a0!2sSouth%20Africa!5e0!3m2!1sen!2sjo!4v1696490195672!5m2!1sen!2sjo' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
         "itinerary": [
           {
             "day": 1,
@@ -1009,10 +986,10 @@
         "duration": "6 Days",
         "tour_type": "Adventure",
         "group_size": 1,
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/3992510/pexels-photo-3992510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/920040/pexels-photo-920040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/1687193/pexels-photo-1687193.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/11679893/pexels-photo-11679893.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.9,
         "n_reviews": 42,
         "valid_from": "2023-11-15",
@@ -1033,7 +1010,7 @@
         ],
         "price": 5900,
         "overview": "Experience the thrill of a lifetime with a 6-day solo safari adventure in Kenya. Witness the Big Five and countless other wildlife species during game drives in renowned national parks. Stay in luxurious safari lodges, dine under the stars, and embark on guided bushwalks to connect with the untamed beauty of Kenya's wilderness.",
-        "map": "<iframe src='URL_TO_MAP_IFRAME' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8171114.0680704!2d32.60829124574827!3d0.16492570950886087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182780d08350900f%3A0x403b0eb0a1976dd9!2sKenya!5e0!3m2!1sen!2sjo!4v1696490456310!5m2!1sen!2sjo' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
         "itinerary": [
           {
             "day": 1,
@@ -1091,10 +1068,10 @@
         "duration": "5 Days",
         "tour_type": "Adventure",
         "group_size": 1,
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/2104882/pexels-photo-2104882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/2902939/pexels-photo-2902939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/2177708/pexels-photo-2177708.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/750895/pexels-photo-750895.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.9,
         "n_reviews": 38,
         "valid_from": "2023-10-01",
@@ -1115,7 +1092,7 @@
         ],
         "price": 6700,
         "overview": "Embark on a 5-day solo mountain expedition to Nepal, where you'll trek to the base camp of Mount Everest. Witness breathtaking vistas, stay in mountain lodges, and immerse yourself in the local Sherpa culture. Experience the thrill of high-altitude trekking and conquer the summit for an unforgettable adventure.",
-        "map": "<iframe src='URL_TO_MAP_IFRAME' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594655.029007993!2d81.4888348963244!3d28.376823968786955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3995e8c77d2e68cf%3A0x34a29abcd0cc86de!2sNepal!5e0!3m2!1sen!2sjo!4v1696490720859!5m2!1sen!2sjo' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
         "itinerary": [
           {
             "day": 1,
@@ -1165,10 +1142,10 @@
         "duration": "4 Days",
         "tour_type": "Adventure",
         "group_size": 1,
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/2739664/pexels-photo-2739664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/927414/pexels-photo-927414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/325807/pexels-photo-325807.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/2666806/pexels-photo-2666806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.7,
         "n_reviews": 28,
         "valid_from": "2023-11-15",
@@ -1189,7 +1166,7 @@
         ],
         "price": 3200,
         "overview": "Experience the ultimate adventure with a 4-day solo trip to the Amazon Rainforest. Explore the dense jungle, encounter diverse wildlife, and immerse yourself in the rich cultures of indigenous communities. Stay in eco-friendly lodges and enjoy authentic Amazonian cuisine. With guided jungle hikes, canoeing in Amazon rivers, and more, this solo adventure will be an unforgettable journey into the heart of the rainforest.",
-        "map": "<iframe src='URL_TO_MAP_IFRAME' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7371.721847777723!2d-62.22615719713856!3d-3.4671364035452528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91e8605342744385%3A0x3d3c6dc1394a7fc7!2sAmazon%20Rainforest!5e0!3m2!1sen!2sjo!4v1696490899379!5m2!1sen!2sjo' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
         "itinerary": [
           {
             "day": 1,
@@ -1231,10 +1208,10 @@
         "duration": "5 Days",
         "tour_type": "Adventure",
         "group_size": 1,
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/2474690/pexels-photo-2474690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/5289209/pexels-photo-5289209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/654/clouds-cloudy-agriculture-farm.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.9,
         "n_reviews": 42,
         "valid_from": "2023-11-25",
@@ -1255,7 +1232,7 @@
         ],
         "price": 3800,
         "overview": "Experience the thrill of a 5-day solo sea adventure in Bali, Indonesia. This adventure-packed trip offers a wide range of sea activities, including surfing, snorkeling, and jet-skiing. Stay in luxurious beachfront villas, relax on Bali's most stunning beaches, and indulge in mouthwatering Indonesian dishes. Dive into the underwater world, uncover hidden beaches, and be mesmerized by breathtaking sunsets. It's the ultimate solo sea adventure in the heart of Bali.",
-        "map": "<iframe src='URL_TO_MAP_IFRAME' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1010300.1445837809!2d113.82255500559457!3d-8.452130872124984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd141d3e8100fa1%3A0x24910fb14b24e690!2sBali%2C%20Indonesia!5e0!3m2!1sen!2sjo!4v1696491767384!5m2!1sen!2sjo' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
         "itinerary": [
           {
             "day": 1,
@@ -1305,10 +1282,10 @@
         "duration": "4 Days",
         "tour_type": "Adventure",
         "group_size": 1,
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/3581916/pexels-photo-3581916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/2945595/pexels-photo-2945595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/1703317/pexels-photo-1703317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/774835/pexels-photo-774835.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.7,
         "n_reviews": 36,
         "valid_from": "2023-11-10",
@@ -1329,7 +1306,7 @@
         ],
         "price": 2900,
         "overview": "Discover the magic of Morocco with a 4-day solo adventure. Immerse yourself in the charm of Marrakech, wander through the ancient streets of Fes, and get lost in the blue beauty of Chefchaouen. Trek into the Sahara Desert on a camel, camp under the starlit sky, and awaken to the desert sunrise. Savor the flavors of Moroccan cuisine, haggle in bustling souks, and embrace the cultural diversity of Morocco.",
-        "map": "<iframe src='URL_TO_MAP_IFRAME' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6952048.799726518!2d-12.442129941711586!3d31.70072894776195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b88619651c58d%3A0xd9d39381c42cffc3!2sMorocco!5e0!3m2!1sen!2sjo!4v1696491936312!5m2!1sen!2sjo' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
         "itinerary": [
           {
             "day": 1,
@@ -1371,10 +1348,10 @@
         "duration": "7 Days",
         "tour_type": "Adventure",
         "group_size": 1,
-        "image1": "URL_TO_IMAGE_1",
-        "image2": "URL_TO_IMAGE_2",
-        "image3": "URL_TO_IMAGE_3",
-        "image4": "URL_TO_IMAGE_4",
+        "image1": "https://images.pexels.com/photos/1796736/pexels-photo-1796736.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image2": "https://images.pexels.com/photos/547494/pexels-photo-547494.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image3": "https://images.pexels.com/photos/2422461/pexels-photo-2422461.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image4": "https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "rating": 4.9,
         "n_reviews": 42,
         "valid_from": "2024-05-20",
@@ -1395,7 +1372,7 @@
         ],
         "price": 4500,
         "overview": "Embark on an unforgettable 7-day solo adventure through Europe. From the romantic streets of Paris to the ancient ruins of Rome, the imperial grandeur of Vienna to the fairytale charm of Prague, this journey will take you through the essence of Europe. Immerse yourself in local cultures, savor delicious cuisines, and visit iconic landmarks. Whether you're exploring art in Paris or indulging in gelato in Rome, this adventure promises a solo experience of a lifetime.",
-        "map": "<iframe src='URL_TO_MAP_IFRAME' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
+        "map": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22046882.422033202!2d1.0298593126716433!3d47.58199354225982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46ed8886cfadda85%3A0x72ef99e6b3fcf079!2sEurope!5e0!3m2!1sen!2sjo!4v1696492164778!5m2!1sen!2sjo' width='100%' height='400' frameborder='0' style='border:0' allowfullscreen></iframe>",
         "itinerary": [
           {
             "day": 1,
@@ -1407,10 +1384,7 @@
           },
           {
             "day": 2,
-            "activities": [
-              "Louvre Museum exploration",
-              "Travel to Rome, Italy"
-            ]
+            "activities": ["Louvre Museum exploration", "Travel to Rome, Italy"]
           },
           {
             "day": 3,
