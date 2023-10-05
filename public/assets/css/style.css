@@ -677,7 +677,7 @@ section {
     text-align: left;
     list-style: none;
     background-color: #fff;
-    background-clip: padding-box;
+    /* background-clip: padding-box; */
     border: 1px solid rgba(0, 0, 0, .15);
     border-radius: 0.25rem;
 }
@@ -3320,7 +3320,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
     max-width: 100%;
     visibility: hidden;
     background-color: #fff;
-    background-clip: padding-box;
+    /* background-clip: padding-box; */
     outline: 0;
     transition: transform .3s ease-in-out;
     z-index: 999999;

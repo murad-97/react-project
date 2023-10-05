@@ -1,6 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function TourDetails() {
+
+  // const [data, setData] = useState([]);
+
+  // useEffect(() => {
+  //   axios
+  //     .get("https://651a6056340309952f0d2d66.mockapi.io/Category")
+  //     .then((response) => {
+  //       setData(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, []);
+
   return (
     <div>
       {/* Tour Details */}

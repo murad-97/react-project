@@ -17,35 +17,22 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-      <Route path="/" element={<Master />}>
-      <Route path="/myprofile" element={<Profile />}>
-  <Route index element={<ProfileInfo />} /> {/* Use "index" to match the default sub-route */}
-  <Route path="booking" element={<Booking />} />
-</Route>
-      <Route index element={<Home />} />
-      <Route path="/product/honeymoon/" element={<Honeymoon />} />
-      <Route path="/product/grouptour/" element={<Grouptour />} />
-      <Route path="/product/indivisualtour/" element={<Indivisualtour />} />
-    </Route>
-      <Route path="/about" element={<About />} />
-      <Route path="/single" element={<Single />} />
-      </Route>
-      <Route path="login" element={<Login />} />
-
-        {/* Home route with Master layout */}
         <Route path="/" element={<Master />}>
-          <Route index element={<Home />} />
+          <Route index path="/" element={<Home />} />
+          <Route path="/product/honeymoon" element={<Honeymoon />} />
+          <Route path="/product/grouptour" element={<Grouptour />} />
+          <Route path="/product/indivisualtour" element={<Indivisualtour />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/single" element={<Single />} />
+        <Route path="/myprofile" element={<Profile />}>
+          <Route index element={<ProfileInfo />} /> {/* Use "index" to match the default sub-route */}
+          <Route path="booking" element={<Booking />} />
         </Route>
-        
-        {/* Login route with Master layout */}
-        <Route path="login" element={<Master />}>
-          <Route index element={<Login />} />
         </Route>
-        
-        {/* Register route with Master layout */}
-        <Route path="register" element={<Master />}>
-          <Route index element={<Register />} />
-        </Route> 
+
+
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );
