@@ -147,7 +147,10 @@ export default function Header() {
                   <div className="others-options d-flex align-items-center">
                   {isLoggedIn ? (
             <>
-              <div className="option-item">Welcome, {userName}</div>
+        <div className="option-item">
+  <span style={{ color: 'white', fontSize: '20px' }}>Welcome, {userName}</span>
+</div>
+
               <div className="option-item">
                 <button className="btn btn_navber" onClick={handleLogout}>
                   Log Out
