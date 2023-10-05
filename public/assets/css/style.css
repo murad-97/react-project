@@ -57,7 +57,7 @@ Default CSS
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,400;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,900&display=swap');
 
 :root {
-    --main-color: #8B3EEA;
+    --main-color: #65B0CB;
     --white-color: #ffffff;
     --black-color: #2B2540;
     --black-color-opacity: #2b2540c4;
@@ -264,7 +264,7 @@ section {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #8b3eea9c;
+    background: #65B0CB;
     left: 0;
     top: 0;
     opacity: 0;
@@ -584,7 +584,7 @@ section {
 
 
 .flight_Search_boxed {
-    background: #8b3eea17;
+    background: #65B0CB17;
     padding: 10px 10px 10px 20px;
     border-radius: 10px;
     position: relative;
@@ -677,7 +677,7 @@ section {
     text-align: left;
     list-style: none;
     background-color: #fff;
-    background-clip: padding-box;
+    /* background-clip: padding-box; */
     border: 1px solid rgba(0, 0, 0, .15);
     border-radius: 0.25rem;
 }
@@ -1970,7 +1970,7 @@ section {
         Home Page Three
 ================================*/
 #home_three_banner{
-    background-image: url(https://andit.co/projects/html/and-tour/demo/assets/img/banner/banner-three.png);
+    background-image: url(https://backpacktraveler.qodeinteractive.com/wp-content/uploads/2018/08/brazil-single-2-2.jpg);
     padding: 325px 0 340px 0;
     background-repeat: no-repeat;
     background-size: cover;
@@ -3320,7 +3320,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
     max-width: 100%;
     visibility: hidden;
     background-color: #fff;
-    background-clip: padding-box;
+    /* background-clip: padding-box; */
     outline: 0;
     transition: transform .3s ease-in-out;
     z-index: 999999;
@@ -3985,7 +3985,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 }
 
 #consultation_area {
-    background-image: url('../img/common/counter_bg.png');
+    background-image: url('https://andit.co/projects/html/and-tour/demo/assets/img/common/counter_bg.png');
     padding: 150px 0 220px 0;
     background-repeat: no-repeat;
     background-size: cover;
@@ -5481,7 +5481,7 @@ textarea {
 .TabPanelInner h4 {
     font-size: 16px;
     padding-bottom: 4px;
-    border-bottom: 1px solid #8b3eea;
+    border-bottom: 1px solid #65B0CB;
     display: inline-block;
     margin-bottom: 12px;
 }

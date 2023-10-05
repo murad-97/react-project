@@ -23,6 +23,8 @@ const Login = () => {
       if (user) {
         setMessage("Login successful!");
         sessionStorage.setItem("isLoggedIn", true);
+        sessionStorage.setItem("userEmail", user.email);
+        sessionStorage.setItem("userid", user.id);
 
         navigate("/");
       } else {
