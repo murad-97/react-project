@@ -14,12 +14,14 @@ export default function Header() {
   useEffect(() => {
     const loggedInUserEmail = sessionStorage.getItem('userEmail'); // Assuming user's email is stored in sessionStorage
     if (loggedInUserEmail) {
-      const apiUrl = `https://651a6344340309952f0d333a.mockapi.io/user?email=${loggedInUserEmail}`;
+      const apiUrl = `https://651a6344340309952f0d333a.mockapi.io/hasan?email=${loggedInUserEmail}`;
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => {
+          console.log(data); // Assuming the API response is an array containing a single user object
+          
           if (data.length > 0) {
-            const user = data[0]; // Assuming the API response is an array containing a single user object
+            const user = data[0];
             setUserName(user.name);
           } else {
             console.error('User not found');
