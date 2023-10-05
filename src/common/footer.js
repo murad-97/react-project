@@ -13,11 +13,11 @@ export default function footer() {
                     <div className="footer_first_area">
                         <div className="footer_inquery_area">
                             <h5>Call 24/7 for any help</h5>
-                            <h3> <a href="tel:+00-123-456-789">+00 123 456 789</a></h3>
+                            <h3> <a href="tel:+00-123-456-789">+962 777 745 111</a></h3>
                         </div>
                         <div className="footer_inquery_area">
                             <h5>Mail to our support team</h5>
-                            <h3> <a href="mailto:support@domain.com">support@domain.com</a></h3>
+                            <h3> <a href="mailto:support@domain.com">support@backpacktraveler.com</a></h3>
                         </div>
                         <div className="footer_inquery_area">
                             <h5>Follow us on</h5>
@@ -25,7 +25,6 @@ export default function footer() {
                                 <li><a href="#!"><i className="fab fa-facebook"></i></a></li>
                                 <li><a href="#!"><i className="fab fa-twitter-square"></i></a></li>
                                 <li><a href="#!"><i className="fab fa-instagram"></i></a></li>
-                                <li><a href="#!"><i className="fab fa-linkedin"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -98,14 +97,10 @@ export default function footer() {
             <div className="row align-items-center">
                 <div className="co-lg-6 col-md-6 col-sm-12 col-12">
                     <div className="copyright_left">
-                        <p>Copyright © 2022 All Rights Reserved</p>
+                        <p>Copyright © 2022 Backpack Traveler All Rights Reserved</p>
                     </div>
                 </div>
-                <div className="co-lg-6 col-md-6 col-sm-12 col-12">
-                    <div className="copyright_right">
-                        <img src="assets/img/common/cards.png" alt="img"/>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
