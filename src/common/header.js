@@ -101,7 +101,7 @@ export default function Header() {
                         <Nav.Link
                         as={NavLink}
                         exact
-                        to="/product/honeymoon"
+                        to="/product/1"
                         activeClassName="active"
                       >
                         HoneyMoon Tours
@@ -112,7 +112,7 @@ export default function Header() {
                         <Nav.Link
                         as={NavLink}
                         exact
-                        to="/product/grouptour"
+                        to="/product/2"
                         activeClassName="active"
                       >
                         Group Tours
@@ -123,7 +123,7 @@ export default function Header() {
                         <Nav.Link
                         as={NavLink}
                         exact
-                        to="/product/indivisualtour"
+                        to="/product/3"
                         activeClassName="active"
                       >
                         Solo Tours

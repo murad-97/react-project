@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Nav from "react-bootstrap/Nav";
+
+import { NavLink } from "react-router-dom";
+
+import Indivisualtour from "../products/indivisualtour";
+import Grouptour from "../products/grouptour";
+import Honeymoon from "../products/honeymoon";
+import { Routes, Route } from "react-router-dom"; // Import Routes and Route from React Router
 
 export default function Category() {
   const [data, setData] = useState([]);
@@ -21,17 +29,21 @@ export default function Category() {
         <div key={item.id} className="col-lg-4 col-md-6 col-sm-6 col-12">
           <div className="news_card_four_wrapper">
             <div className="news_card_four_img">
-              <a href="news-details.html">
+              <Nav.Link
+                as={NavLink}
+                exact
+                to={`/product/${item.id}`}
+              >
                 <img
                   src={item.image}
                   alt="img"
-                  style={{ width: "100%", height: "280px" }} // Adjust the height as needed
+                  style={{ width: "100%", height: "280px" }}
                 />
-              </a>
+              </Nav.Link>
             </div>
             <div className="news_card_four_heading text-center">
               <h3>
-                <a href="news-details.html">{item.name}</a>
+                <a href={`/product/${item.id}`}>{item.name}</a>
               </h3>
               <p>{item.description}</p>
             </div>

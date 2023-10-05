@@ -19,9 +19,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Master />}>
           <Route index path="/" element={<Home />} />
-          <Route path="/product/honeymoon" element={<Honeymoon />} />
-          <Route path="/product/grouptour" element={<Grouptour />} />
-          <Route path="/product/indivisualtour" element={<Indivisualtour />} />
+          <Route path="/product/1" element={<Honeymoon />} />
+          <Route path="/product/2" element={<Grouptour />} />
+          <Route path="/product/3" element={<Indivisualtour />} />
           <Route path="/about" element={<About />} />
           <Route path="/single" element={<Single />} />
         <Route path="/myprofile" element={<Profile />}>
