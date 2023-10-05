@@ -9,15 +9,16 @@
   position: relative;
 }
 .owl-carousel {
-  display: none;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   z-index: 1;
 }
 .owl-carousel .owl-stage {
   position: relative;
-  /* -ms-touch-action: pan-Y; */
-  /* touch-action: manipulation;
-  -moz-backface-visibility: hidden; */
+  -ms-touch-action: pan-Y;
+  touch-action: manipulation;
+  -moz-backface-visibility: hidden;
 }
 .owl-carousel .owl-stage:after {
   content: ".";
@@ -98,7 +99,7 @@
 }
 .owl-carousel.owl-grab {
   cursor: move;
-  /* cursor: grab; */
+  cursor: grab;
 }
 .owl-carousel.owl-rtl {
   direction: rtl;
