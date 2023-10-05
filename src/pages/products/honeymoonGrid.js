@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Nav from "react-bootstrap/Nav";
+import { NavLink } from "react-router-dom";
 
 export default function ProductGrid() {
   const [categoryData, setData] = useState([]);
@@ -16,12 +18,12 @@ export default function ProductGrid() {
   }, []);
 
   // Set the desired categoryId to filter the category
-  const categoryId = "2"; // You can change this to the desired category ID
+  const categoryId = "1"; // You can change this to the desired category ID
 
   // Use optional chaining and nullish coalescing to handle the case when category is not found
   const selectedCategory = categoryData.find((category) => category.id === categoryId);
   const tours = selectedCategory?.tour ?? [];
-
+console.log(tours[0]);
   return (
     <div className="col-lg-9">
       <div className="row">
@@ -29,9 +31,13 @@ export default function ProductGrid() {
           <div key={tour.name} className="col-lg-4 col-md-6 col-sm-6 col-12">
             <div className="theme_common_box_two img_hover">
               <div className="theme_two_box_img">
-                <a href="tour-details.html">
+                <Nav.Link
+                  as={NavLink}
+                  exact
+                  to={`/single/${tour.id}`} // Include the tour id as a URL parameter
+                >
                   <img src={tour.image1} alt="img" />
-                </a>
+                </Nav.Link>
                 <p>
                   <i className="fas fa-map-marker-alt"></i>
                   {tour.location}
