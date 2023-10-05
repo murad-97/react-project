@@ -1,68 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-export default function category() {
+export default function Category() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://651a6056340309952f0d2d66.mockapi.io/Category")
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <>
-        <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-              <div className="news_card_four_wrapper">
-                <div className="news_card_four_img">
-                  <a href="news-details.html">
-                    <img
-                      src="https://andit.co/projects/html/and-tour/demo/assets/img/news/news-3.png"
-                      alt="img"
-                    />
-                  </a>
-                </div>
-                <div className="news_card_four_heading text-center">
-                  <h3>
-                    <a href="news-details.html">HoneyMoon Tour</a>
-                  </h3>
-                </div>
-              </div>
+      {data.map((item) => (
+        <div key={item.id} className="col-lg-4 col-md-6 col-sm-6 col-12">
+          <div className="news_card_four_wrapper">
+            <div className="news_card_four_img">
+              <a href="news-details.html">
+                <img
+                  src={item.image}
+                  alt="img"
+                  style={{ width: "100%", height: "280px" }} // Adjust the height as needed
+                />
+              </a>
             </div>
-
-            <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-              <div className="news_card_four_wrapper">
-                <div className="news_card_four_img">
-                  <a href="news-details.html">
-                    <img
-                      src="https://andit.co/projects/html/and-tour/demo/assets/img/news/news-1.png"
-                      alt="img"
-                    />
-                  </a>
-                </div>
-                <div className="news_card_four_heading text-center">
-                  <h3>
-                    <a href="news-details.html">Group Tour</a>
-                  </h3>
-                  {/* <ul>
-                                <li>24th January <i className="fas fa-circle"></i></li>
-                                <li>5min read</li>
-                            </ul> */}
-                </div>
-              </div>
+            <div className="news_card_four_heading text-center">
+              <h3>
+                <a href="news-details.html">{item.name}</a>
+              </h3>
+              <p>{item.description}</p>
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-              <div className="news_card_four_wrapper">
-                <div className="news_card_four_img">
-                  <a href="news-details.html">
-                    <img
-                      src="https://andit.co/projects/html/and-tour/demo/assets/img/news/news-2.png"
-                      alt="img"
-                    />
-                  </a>
-                </div>
-                <div className="news_card_four_heading text-center">
-                  <h3>
-                    <a href="news-details.html">Individual Tour</a>
-                  </h3>
-                  {/* <ul>
-                                <li>24th January <i className="fas fa-circle"></i></li>
-                                <li>5min read</li>
-                            </ul> */}
-                </div>
-              </div>
-            </div>
+          </div>
+        </div>
+      ))}
     </>
-  )
+  );
 }
