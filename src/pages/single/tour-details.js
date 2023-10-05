@@ -3,7 +3,7 @@ import TourDetails from "./components/tour-details";
 import ImageSlider from "./components/image-slidder";
 import Overview from "./components/overview";
 import Itinerary from "./components/itinerary";
-import IncludedExcluded from "./components/included-excluded";
+// import IncludedExcluded from "./components/included-excluded";
 import CustomerReviews from "./components/reviews";
 import OntheSide from "./components/on-the-side";
 import Map from "./components/map";
@@ -51,7 +51,7 @@ function Single() {
           <div className="row">
             <div className="col-lg-12">
               <div className="common_bannner_text">
-                <h2>Explore the evergreen forest</h2>
+                <h2>Explore the {categoryData.name}</h2>
                 <ul>
                   <li><Link to="/" style={{ textDecoration:"none", color: "white" }}> Home</Link>
                   </li><li>
@@ -72,13 +72,21 @@ function Single() {
       <section id="tour_details_main" className="section_padding">
         <div className="container">
           <div className="row">
-            <div className="col-lg-8">
-              <div className="tour_details_leftside_wrapper">
-                {/* Tour Details component */}
-                <TourDetails name={categoryData.name} location={categoryData.location}  n_reviews={categoryData.n_reviews}
-                 rating={categoryData.rating} duration={categoryData.duration}
-                  tour_type={categoryData.tour_type} group_size={categoryData.group_size} />
+          <div className="col-lg-10" style={{ marginLeft: '100px', marginRight: '10px' }}>
+  {/* Tour Details component */}
+  <TourDetails
+    name={categoryData.name}
+    location={categoryData.location}
+    n_reviews={categoryData.n_reviews}
+    rating={categoryData.rating}
+    duration={categoryData.duration}
+    tour_type={categoryData.tour_type}
+    group_size={categoryData.group_size}
+  />
+</div>
 
+                <div className="col-lg-8">
+                <div className="tour_details_leftside_wrapper">
                 {/* Use the ImageSlider component */}
                 <ImageSlider image1={categoryData.image1} image2={categoryData.image2} 
                 image3={categoryData.image3} image4={categoryData.image4}/>
@@ -87,19 +95,16 @@ function Single() {
                 <Overview overview={categoryData} />
 
                 {/* Itinerary component */}
-                <Itinerary />
-
-                {/* Included/Excluded component */}
-                <IncludedExcluded />
+                <Itinerary itinerary={categoryData} />
 
                 {/* Map component */}
-                <Map />
+                <Map map={categoryData.map}/>
 
               </div>
             </div>
 
             {/* On the Side Component */}
-            <OntheSide />
+            <OntheSide valid_from={categoryData.valid_from} valid_till={categoryData.valid_till} price={categoryData.price} overview={categoryData}/>
 
           </div>
         </div>

@@ -1,5 +1,7 @@
 
 function TourDetails({name,location,rating,n_reviews,duration,tour_type,group_size}) {
+
+  
   return (
     <div>
           <div >
@@ -12,8 +14,7 @@ function TourDetails({name,location,rating,n_reviews,duration,tour_type,group_si
                 </h5>
               </div>
               <div className="tour_details_top_heading_right">
-                <h4>Excellent</h4>
-                <h6>{rating}/5</h6>
+                <h4>Excellent</h4> <h6>{rating}/5</h6>
                 <p>({n_reviews} reviews)</p> 
               </div>
             </div>
