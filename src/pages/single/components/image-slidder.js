@@ -13,7 +13,7 @@ const sliderSettings = {
   autoplaySpeed: 3500,
 };
 
-const ImageSlider = () => {
+const ImageSlider = ({image1,image2,image3,image4}) => {
   const sliderRef = useRef(null);
 
   const pauseSlider = () => {
@@ -37,31 +37,31 @@ const ImageSlider = () => {
         <Slider {...sliderSettings} ref={sliderRef}>
           <div>
             <img
-              src="https://andit.co/projects/html/and-tour/demo/assets/img/tour/big-img.png"
+              src={image1}
               alt="img"
             />
           </div>
           <div>
             <img
-              src="https://andit.co/projects/html/and-tour/demo/assets/img/tour/big-img2.png"
+              src={image2}
               alt="img"
             />
           </div>
           <div>
             <img
-              src="https://andit.co/projects/html/and-tour/demo/assets/img/tour/big-img3.png"
+              src={image3}
               alt="img"
             />
           </div>
           <div>
             <img
-              src="https://andit.co/projects/html/and-tour/demo/assets/img/tour/big-img4.png"
+              src={image4}
               alt="img"
             />
           </div>
           <div>
             <img
-              src="https://andit.co/projects/html/and-tour/demo/assets/img/tour/big-img6.png"
+              src={image1}
               alt="img"
             />
           </div>

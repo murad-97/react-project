@@ -23,7 +23,7 @@ function App() {
           <Route path="/product/2" element={<Grouptour />} />
           <Route path="/product/3" element={<Indivisualtour />} />
           <Route path="/about" element={<About />} />
-          <Route path="/single" element={<Single />} />
+          <Route path="/single/:id" element={<Single />} />
         <Route path="/myprofile" element={<Profile />}>
           <Route index element={<ProfileInfo />} /> {/* Use "index" to match the default sub-route */}
           <Route path="booking" element={<Booking />} />

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect,useState } from "react";
 import TourDetails from "./components/tour-details";
 import ImageSlider from "./components/image-slidder";
 import Overview from "./components/overview";
@@ -7,20 +7,46 @@ import IncludedExcluded from "./components/included-excluded";
 import CustomerReviews from "./components/reviews";
 import OntheSide from "./components/on-the-side";
 import Map from "./components/map";
-// import { Helmet } from 'react-helmet-async';
+import axios from "axios";
 
+// import { Helmet } from 'react-helmet-async';
+import { useParams } from "react-router-dom";
 // import HelmetComponent from "./components/helmet"
 import { Link } from "react-router-dom";
 
 
-
 function Single() {
+  const { id } = useParams();
+  const [categoryData, setData] = useState([]);
+  useEffect(() => {
+    // Replace "your_session_variable_name" with the actual session variable name
+    // const tourId = sessionStorage.getItem("your_session_variable_name");
+
+    if (id) {
+      // setTourIdFromSession(tourId);
+      const category=sessionStorage.getItem('category');
+      axios
+        .get(`https://651a6056340309952f0d2d66.mockapi.io/Category/${category}`)
+        .then((response) => {
+          const selectedTour =  response.data.tour.find((tour) => tour.id === id);
+          setData(selectedTour);
+          console.log(selectedTour.name) ;// Wrap the response in an array for mapping
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, []);
+  if(!categoryData){
+    return <div>hi</div>
+  }
   return (
     <>
 
 
       {/* Common Banner Area */}
       <section id="common_banner">
+   
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -49,13 +75,16 @@ function Single() {
             <div className="col-lg-8">
               <div className="tour_details_leftside_wrapper">
                 {/* Tour Details component */}
-                <TourDetails />
+                <TourDetails name={categoryData.name} location={categoryData.location}  n_reviews={categoryData.n_reviews}
+                 rating={categoryData.rating} duration={categoryData.duration}
+                  tour_type={categoryData.tour_type} group_size={categoryData.group_size} />
 
                 {/* Use the ImageSlider component */}
-                <ImageSlider />
+                <ImageSlider image1={categoryData.image1} image2={categoryData.image2} 
+                image3={categoryData.image3} image4={categoryData.image4}/>
 
                 {/* Overview component */}
-                <Overview />
+                <Overview overview={categoryData} />
 
                 {/* Itinerary component */}
                 <Itinerary />

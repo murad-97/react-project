@@ -155,7 +155,7 @@ export default function Header() {
                       <Nav.Link
                         as={NavLink}
                         exact
-                        to="/single"
+                        to="/single/:tourId"
                         activeClassName="active"
                       >
                         Single
