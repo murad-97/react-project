@@ -40,15 +40,21 @@ export default function Header() {
             <div className="container">
               <div className="main-responsive-menu">
                 <div className="logo">
-                  <a href="index.html">
-                    <img
+                  
+                  <Nav.Link
+                        as={NavLink}
+                        exact
+                        to="/"
+                        activeClassName="active"
+                      >
+                       <img
                       src="https://backpacktraveler.qodeinteractive.com/wp-content/uploads/2018/09/LIGHT.png"
                       alt="logo"
                       width="240"
                       height="60"
                       style={{ marginTop: "5px" }}
                     />
-                  </a>
+                      </Nav.Link>
                 </div>
               </div>
             </div>
@@ -56,15 +62,20 @@ export default function Header() {
           <div className="main-navbar">
             <div className="container">
               <nav className="navbar navbar-expand-md navbar-light">
-                <a className="navbar-brand" href="index.html">
-                  <img
-                    src="https://backpacktraveler.qodeinteractive.com/wp-content/uploads/2018/09/LIGHT.png"
-                    alt="logo"
-                    width="240"
-                    height="60"
-                    style={{ marginTop: "5px" }}
-                  />
-                </a>
+              <Nav.Link
+                        as={NavLink}
+                        exact
+                        to="/"
+                        activeClassName="active"
+                      >
+                       <img
+                      src="https://backpacktraveler.qodeinteractive.com/wp-content/uploads/2018/09/LIGHT.png"
+                      alt="logo"
+                      width="240"
+                      height="60"
+                      style={{ marginTop: "5px" }}
+                    />
+                      </Nav.Link>
                 <div
                   className="collapse navbar-collapse mean-menu"
                   id="navbarSupportedContent"
