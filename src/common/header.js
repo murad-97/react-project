@@ -151,16 +151,6 @@ export default function Header() {
                         Contact us
                       </Nav.Link>
                     </li>
-                    <li className="nav-item">
-                      <Nav.Link
-                        as={NavLink}
-                        exact
-                        to="/single/:tourId"
-                        activeClassName="active"
-                      >
-                        Single
-                      </Nav.Link>
-                    </li>
                   </ul>
                   <div className="others-options d-flex align-items-center">
                   {isLoggedIn ? (
