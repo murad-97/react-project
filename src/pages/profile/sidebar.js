@@ -1,8 +1,16 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import Nav from "react-bootstrap/Nav";
 
 const Sidebar = () => {
+    const navigate = useNavigate();
+    const handleLogout = () => {
+        sessionStorage.setItem('isLoggedIn', 'false');
+        navigate("/");
+       
+      };
   return (
     <>
       <div className="col-lg-4">
@@ -67,9 +75,11 @@ const Sidebar = () => {
               <li>
                
                 <Nav.Link
-                  as={NavLink}
-                  exact
-                  to="/logout"
+                 
+                  
+                 onClick={handleLogout}
+                  
+                
                 ><i className="fas fa-sign-out-alt"></i>
                   Logout
                 </Nav.Link>
