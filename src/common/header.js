@@ -90,7 +90,7 @@ export default function Header({ isLoggedIn, handleLogout }) {
                     </li>
                     <li className="nav-item">
                       <a href="#" className="nav-link">
-                        Categories
+                        Destinations
                         <i className="fas fa-angle-down"></i>
                       </a>
                       <ul className="dropdown-menu">
@@ -112,7 +112,7 @@ export default function Header({ isLoggedIn, handleLogout }) {
                         to="/product/2"
                         activeClassName="active"
                       >
-                        Group Tours
+                        Family Tours
                       </Nav.Link>
                         
                         </li>
@@ -146,16 +146,6 @@ export default function Header({ isLoggedIn, handleLogout }) {
                     <li className="nav-item">
                       <Nav.Link as={NavLink} exact to="/contact">
                         Contact us
-                      </Nav.Link>
-                    </li>
-                    <li className="nav-item">
-                      <Nav.Link
-                        as={NavLink}
-                        exact
-                        to="/single"
-                        activeClassName="active"
-                      >
-                        Single
                       </Nav.Link>
                     </li>
                   </ul>

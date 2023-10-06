@@ -24,8 +24,11 @@ export default function Productsidebar() {
                                 <h5>Description</h5>
                             </div>
                             <div className="name_search_form">
-                                <input type="text" className="form-control" placeholder="e.g Deluxe bus"/>
-                                <i className="fas fa-search"></i>
+                              <p>
+                              {categoryData.description}
+                              </p>
+                                {/* <input type="text" className="form-control" placeholder="e.g Deluxe bus"/>
+                                <i className="fas fa-search"></i> */}
                             </div>
                         </div>
                         
