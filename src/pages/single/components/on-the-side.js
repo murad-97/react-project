@@ -47,8 +47,13 @@ function OntheSide({ valid_from, valid_till, price, overview }) {
           </div>
           <div className="tour_select_offer_bar_bottom">
             {/* Use Link instead of button, and set the 'to' prop for the route */}
+            {/* ====husam============== */}
+            
+{/* ========husam======= */}
+            
             <Link
-              to="/your-route-here"
+              to="/booking"
+              // to={`/booking/${tour.id}`}
               className="btn btn_theme btn_md w-100"
             >
               Book Now

@@ -15,6 +15,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
+
 function Single() {
   const { id } = useParams();
   const [categoryData, setData] = useState([]);
@@ -30,6 +31,11 @@ function Single() {
         .then((response) => {
           const selectedTour =  response.data.tour.find((tour) => tour.id === id);
           setData(selectedTour);
+          // =husam==============================================================
+          // const selectedTourss = sessionStorage.setItem("selectedTourss", selectedTour.name);
+         
+          // console.log(selectedTourss);
+          // ==husam==================================================================
           console.log(selectedTour.name) ;// Wrap the response in an array for mapping
         })
         .catch((error) => {
@@ -40,6 +46,7 @@ function Single() {
   if(!categoryData){
     return <div>hi</div>
   }
+
   return (
     <>
 
@@ -86,6 +93,7 @@ function Single() {
 </div>
 
                 <div className="col-lg-8">
+              
                 <div className="tour_details_leftside_wrapper">
                 {/* Use the ImageSlider component */}
                 <ImageSlider image1={categoryData.image1} image2={categoryData.image2} 
@@ -105,7 +113,9 @@ function Single() {
 
             {/* On the Side Component */}
             <OntheSide valid_from={categoryData.valid_from} valid_till={categoryData.valid_till} price={categoryData.price} overview={categoryData}/>
-
+            {/* =================== */}
+            
+            {/* =============== */}
           </div>
         </div>
         {/* Reviews  Component */}
@@ -119,6 +129,7 @@ function Single() {
           <div className="col-lg-12">
             <div className="section_heading_center">
               <h2>Related tour packages</h2>
+              
             </div>
           </div>
         </div>
