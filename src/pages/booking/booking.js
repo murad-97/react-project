@@ -1,184 +1,150 @@
+import React, { useEffect, useState,useContext } from "react";
+import { MyContext } from "../../layouts/master"; 
 
-import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-// import { useParams } from "react-router-dom";
-
-
-
-
-let isTourAlreadyBooked = false;
-
-
-
-
-
 
 function Booking() {
-    // const { id } = useParams();
+    const { isLoggedIn, handleLogout } = useContext(MyContext);
 
-
-    const navigate = useNavigate();
-    const [bookData, setBookData] = useState({
-     name: "", email: "", phone: "", address: "", addressDetails: "", City: "", State: "",
-        Country: "",date:"", adult: "", children: "", infant:"",booking:[]
-    });
-
-    const [selectedTour, setselectedTour] = useState([]);
-
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const [bookData, setBookData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    addressDetails: "",
+    City: "",
+    State: "",
+    Country: "",
+    date: "",
+    adult: "",
+    children: "",
+    infant: "",
+    booking: [],
+  });
   
-    const { id } = useParams();
-    const [categoryData, setData] = useState([]);
- 
+  const [selectedTour, setselectedTour] = useState([]);
+  const [categoryData, setData] = useState([]);
+  const [isTourAlreadyBooked, setIsTourAlreadyBooked] = useState(false);// Declare isTourAlreadyBooked with useState
 
-    useEffect(() => {
-        fetchData()
-    },[]
-        )
-
-    
-
-   
-
-    const showAlert = () => {
-        Swal.fire({
-            title: 'Success!',
-            text: 'your info updated successfuly!',
-            icon: 'success',
-        })
-    };
-// Assuming you have already declared and initialized state variables using useState
-// For example: const [bookData, setBookData] = useState({});
-// const [data, setData] = useState({});
-
-async function fetchData() {
-  try {
-    const response = await axios.get(
-      `https://651a6344340309952f0d333a.mockapi.io/hasan/${sessionStorage.getItem(
-        'userid'
-      )}`
-    );
-    const data = response.data;
-    setBookData({
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      address: data.address,
-      addressDetails: data.addressDetails,
-      City: data.City,
-      State: data.state,
-      Country: data.Country,
-      date: data.date,
-      adult: data.adult,
-      children: data.children,
-      infant: data.infant,
-      booking:data.booking
+  const showAlert = (title, text, icon) => {
+    Swal.fire({
+      title,
+      text,
+      icon,
     });
-console.log(data.booking)
-    const category = sessionStorage.getItem('category');
-    const secondResponse = await axios.get(
-      `https://651a6056340309952f0d2d66.mockapi.io/Category/${category}`
-    );
-    const selectedTour = secondResponse.data.tour.find((tour) => tour.id === id);
-    setData(selectedTour);
-    setselectedTour(selectedTour)
+  };
 
-    isTourAlreadyBooked = bookData.booking.some((booking) => booking.id === id);
-
-    if (isTourAlreadyBooked) {
-      // Display a message or take appropriate action to inform the user
-     
-    } else {
-      // Create a copy of the booking array and add the selectedTour object to it
-      const updatedBookingArray = [...bookData.booking];
-      updatedBookingArray.push(selectedTour);
+  useEffect(() => {
+      if (!isLoggedIn) {
+      navigate("/login")
+  }
+    fetchData();
+  }, []);
   
-      // Update the bookData object with the modified booking array
+  async function fetchData() {
+    try {
+      const response = await axios.get(
+        `https://651a6344340309952f0d333a.mockapi.io/hasan/${sessionStorage.getItem(
+          "userid"
+        )}`
+      );
+      const data = response.data;
+      console.log(data);
+       if (data.booking === undefined ) {
+      data.booking = [];
+    }
       setBookData({
-        ...bookData,
-        booking: updatedBookingArray,
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        address: data.address,
+        addressDetails: data.addressDetails,
+        City: data.City,
+        State: data.state,
+        Country: data.Country,
+        date: data.date,
+        adult: data.adult,
+        children: data.children,
+        infant: data.infant,
+        booking: data.booking,
       });
   
-      console.log(selectedTour.name);
+      const category = sessionStorage.getItem("category");
+      const secondResponse = await axios.get(
+        `https://651a6056340309952f0d2d66.mockapi.io/Category/${category}`
+      );
+      const selectedTour = secondResponse.data.tour.find((tour) => tour.id === id);
+      setData(selectedTour);
+      setselectedTour(selectedTour);
+  console.log(data.booking);
+      // Update the isTourAlreadyBooked state based on the booking data
+      const isAlreadyBooked = bookData.booking?.some((booking) => booking.id === id);
+      setIsTourAlreadyBooked(isAlreadyBooked);
+      if (!isTourAlreadyBooked) {
+        const updatedBookingArray = [...bookData.booking];
+        updatedBookingArray.push(selectedTour);
+
+        // Update the bookData object with the modified booking array
+        setBookData({
+          ...bookData,
+          booking: updatedBookingArray,
+        });}
+
+
+
+    } catch (error) {
+      // Handle any errors that might occur during the request
+      console.error("Error fetching data:", error);
     }
-  } catch (error) {
-    // Handle any errors that might occur during the request
-    console.error('Error fetching data:', error);
-    // You might want to set an error state or show an error message to the user here
   }
-}
-
-
-    // const handleInputChange = (e) => {
-    //     const { firstname, lastname, email, number, address, addressDetails, City, State, Country } = e.target;
-    //     setBookData({ ...bookData, [name]: value });
-    // };
-
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target; // Destructure name and value from e.target
-        setBookData({ ...bookData, [name]: value, }); // Update state with the new name and value
-    };
 
 
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        try {
-            await axios.put(`https://651a6344340309952f0d333a.mockapi.io/hasan/${sessionStorage.getItem("userid")}`, bookData, {
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            showAlert()
-            console.log("Registration successful!");
-            fetchData()
 
 
-        } catch (error) {
-            console.error("Error during registration:", error);
-        }
-    };
-
-    //     try {
-    //         const response = await axios.post("https://64b9313b79b7c9def6c0bc99.mockapi.io/CRUD", bookData, {
-    //             headers: {
-    //                 "Content-Type": "application/json",
-    //             },
-    //         });
-
-    //         console.log("Registration successful!");
-    //         navigate("/login");
-    //     } catch (error) {
-    //         console.error("Error during registration:", error);
-    //     }
-    // };
-    // ========== old ======================================================================
-    // const history = useHistory();
-    // const [apiData, setApiData] = useState([]);
-    // const [userData, setUserData] = useState([]);
-    // const [doctorData, setDoctorData] = useState([]);
-    // const [doctorAvailableDays, setDoctorAvailableDays] = useState([]);
-    // const [selectedDay, setSelectedDay] = useState("");
-    // const [doctorAvailableTimes, setDoctorAvailableTimes] = useState([]);
-    // const [doctorName, setDoctorName] = useState("");
-    // const [doctorPrice, setDoctorPrice] = useState("");
 
 
-    // const [formData, setFormData] = useState({
-    //     name: "",
-    //     email: "",
-    //     phone: "",
-    //     gender: "",
-    //     bookingDay: "",
-    //     bookingTime: "",
-    //     date: "",
-    //     notes: ""
-    // });
 
+
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setBookData({ ...bookData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+      console.log(isTourAlreadyBooked);
+
+    if (!isTourAlreadyBooked) {
+        
+    
+      try {
+        await axios.put(
+          `https://651a6344340309952f0d333a.mockapi.io/hasan/${sessionStorage.getItem("userid")}`,
+          bookData,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        showAlert('Success!', 'Your info updated successfully!', 'success');
+        console.log("Registration successful!");
+        fetchData();
+      } catch (error) {
+        console.error("Error during registration:", error);
+      
+    }}else{
+        showAlert('Sorry!', 'You have already booked this tour!', 'error');
+    }
+  };
 
     return (
         <>
@@ -191,11 +157,7 @@ console.log(data.booking)
                                 <div className="booking_tour_form">
                                     <h3 className="heading_theme">Booking submission</h3>
                                     <div className="tour_booking_form_box">
-                                        <form onSubmit={isTourAlreadyBooked?handleSubmit: Swal.fire({
-        title: 'Sorry!',
-        text: 'you have already book this tour!',
-        icon: 'fail',
-    })}  id="tour_bookking_form_item">
+                                        <form onSubmit={handleSubmit}  id="tour_bookking_form_item">
                                             <div className="row">
                                                 <div className="col-lg-6">
                                                     <div className="form-group">
@@ -242,14 +204,7 @@ console.log(data.booking)
                                                             placeholder="Street address" />
                                                     </div>
                                                 </div>
-                                                <div className="col-lg-6">
-                                                    <div className="form-group">
-                                                        <input value={bookData.City}
-                                                            name="addressDetails"
-                                                            onChange={handleInputChange} type="text" className="form-control bg_input"
-                                                            placeholder="Apartment, Suite, House no (optional)" />
-                                                    </div>
-                                                </div>
+                                              
                                                 <div className="col-lg-6">
                                                     <div className="form-group">
                                                         <input value={bookData.State}
