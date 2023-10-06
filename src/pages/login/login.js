@@ -25,6 +25,7 @@ const Login = () => {
         sessionStorage.setItem("isLoggedIn", true);
         sessionStorage.setItem("userEmail", user.email);
         sessionStorage.setItem("userid", user.id);
+        console.log(user.id);
 
         navigate("/");
       } else {
