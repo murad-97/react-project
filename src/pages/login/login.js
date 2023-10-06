@@ -26,7 +26,7 @@ const Login = () => {
         sessionStorage.setItem("userEmail", user.email);
         sessionStorage.setItem("userid", user.id);
 
-        navigate("/");
+        navigate(-1);
       } else {
         setMessage("Invalid email or password. Please try again.");
       }

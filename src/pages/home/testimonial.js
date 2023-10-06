@@ -30,7 +30,7 @@ export default function testimonial() {
             <div className="col-lg-5">
               <div className="home_three_client_right">
                 <img
-                  src="https://andit.co/projects/html/and-tour/demo/assets/img/icon/test.png"
+                  src="assets/img/test.png"
                   alt="img"
                 />
               </div>
