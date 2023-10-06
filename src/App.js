@@ -15,6 +15,7 @@ import Product from "./pages/products/allproduct"
 
 import Booking from "./pages/booking/booking"
 import ProfileInfo from "./pages/profile/profile"
+import Contact from './pages/contact/contact';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           {/* <Route path="/product/2" element={<Grouptour />} /> */}
           {/* <Route path="/product/3" element={<Indivisualtour />} /> */}
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/single/:id" element={<Single />} />
         <Route path="/myprofile" element={<Profile />}>
           <Route index element={<ProfileInfo />} /> {/* Use "index" to match the default sub-route */}
