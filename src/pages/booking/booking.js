@@ -1,88 +1,46 @@
-// import React from 'react'
-// import Comp1 from "./comp1";
-// import Comp1 from "./Comp1";
-// import Comp2 from "./Comp2";
-// import Comp3 from "./Comp3";
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from 'sweetalert2';
-// import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-
-import { useHistory } from 'react-router-dom';
+// import { useParams } from "react-router-dom";
 
 
-import OntheSide from "../single/components/on-the-side";
-import TourDetails from "../single/components/tour-details";
+
+
+let isTourAlreadyBooked = false;
+
+
 
 
 
 
 function Booking() {
+    // const { id } = useParams();
+
+
     const navigate = useNavigate();
     const [bookData, setBookData] = useState({
-        userId: "", name: "", email: "", phone: "", address: "", addressDetails: "", City: "", State: "",
-        Country: "",date:"", adult: "", children: "", infant:""
+     name: "", email: "", phone: "", address: "", addressDetails: "", City: "", State: "",
+        Country: "",date:"", adult: "", children: "", infant:"",booking:[]
     });
 
-    const [selectedTour, setselectedTour] = useState({
-        name: "", location: ""
-    });
+    const [selectedTour, setselectedTour] = useState([]);
 
-    // useEffect(() => {
-    //     fetchData()
-    // }, []);
-    // =========================show single product=====================================
+  
     const { id } = useParams();
     const [categoryData, setData] = useState([]);
-    // useEffect(() => {
-    //     // Replace "your_session_variable_name" with the actual session variable name
-    //     // const tourId = sessionStorage.getItem("your_session_variable_name");
+ 
 
-    //     if (id) {
-    //         // setTourIdFromSession(tourId);
-    //         const category = sessionStorage.getItem('category');
-    //         axios
-    //             .get(`https://651a6056340309952f0d2d66.mockapi.io/Category/${category}`)
-    //             .then((response) => {
-    //                 const selectedTour = response.data.tour.find((tour) => tour.id === id);
-    //                 setData(selectedTour);
-    //                 // setData({ name: selectedTour.name, location: selectedTour.name})
-    //                 // =husam==============================================================
-    //                 // sessionStorage.setItem("selectedTourss", selectedTour.name);
+    useEffect(() => {
+        fetchData()
+    },[]
+        )
 
-    //                 console.log(selectedTour);
-    //                 // ==husam==================================================================
-    //                 console.log(selectedTour.name);// Wrap the response in an array for mapping
-    //             })
-    //             .catch((error) => {
-    //                 console.error(error);
-    //             });
-    //     }
-    // }, []);
-    // if (!categoryData) {
-    //     return <div>hi</div>
-    // }
+    
 
-    // ===========================show single product===================================
-
-
-    const userId = sessionStorage.getItem("userid");
-
-    // const bookdetails = sessionStorage.getItem('selectedTourss');
-    // console.log(bookdetails);
-    // ========== old ====================================================================================================================
-    // const navigate = useNavigate();
-    // const [bookData, setBookData] = useState({
-    //     userId: "", name: "", email: "", phone: "", address: "", addressDetails: "", City: "", State: "",
-    //     Country: ""
-    // });
-    // const userId = 1;
-    // useEffect(() => {
-    //     fetchData()
-    // }, []);
+   
 
     const showAlert = () => {
         Swal.fire({
@@ -91,36 +49,67 @@ function Booking() {
             icon: 'success',
         })
     };
+// Assuming you have already declared and initialized state variables using useState
+// For example: const [bookData, setBookData] = useState({});
+// const [data, setData] = useState({});
 
-    async function fetchData() {
-        try {
-            const response = await axios.get(`https://651a6344340309952f0d333a.mockapi.io/hasan/${sessionStorage.getItem("userid")}`);
-            const data = response.data;
-            setBookData({ name: data.name, email: data.email, phone: data.phone })
+async function fetchData() {
+  try {
+    const response = await axios.get(
+      `https://651a6344340309952f0d333a.mockapi.io/hasan/${sessionStorage.getItem(
+        'userid'
+      )}`
+    );
+    const data = response.data;
+    setBookData({
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      address: data.address,
+      addressDetails: data.addressDetails,
+      City: data.City,
+      State: data.state,
+      Country: data.Country,
+      date: data.date,
+      adult: data.adult,
+      children: data.children,
+      infant: data.infant,
+      booking:data.booking
+    });
+console.log(data.booking)
+    const category = sessionStorage.getItem('category');
+    const secondResponse = await axios.get(
+      `https://651a6056340309952f0d2d66.mockapi.io/Category/${category}`
+    );
+    const selectedTour = secondResponse.data.tour.find((tour) => tour.id === id);
+    setData(selectedTour);
+    setselectedTour(selectedTour)
 
+    isTourAlreadyBooked = bookData.booking.some((booking) => booking.id === id);
 
-            const category = sessionStorage.getItem('category');
-            axios
-                .get(`https://651a6056340309952f0d2d66.mockapi.io/Category/${category}`)
-                .then((response) => {
-                    const selectedTour = response.data.tour.find((tour) => tour.id === id);
-                    setData(selectedTour);
-                    // setData({ name: selectedTour.name, location: selectedTour.name})
-                    // =husam==============================================================
-                    // sessionStorage.setItem("selectedTourss", selectedTour.name);
-
-                    console.log(selectedTour);
-                    // ==husam==================================================================
-                    console.log(selectedTour.name);// Wrap the response in an array for mapping
-                })
-            
-            // Now you can work with the 'data' object
-            //   console.log(data);
-        } catch (error) {
-            // Handle any errors that might occur during the request
-            console.error(error);
-        }
+    if (isTourAlreadyBooked) {
+      // Display a message or take appropriate action to inform the user
+     
+    } else {
+      // Create a copy of the booking array and add the selectedTour object to it
+      const updatedBookingArray = [...bookData.booking];
+      updatedBookingArray.push(selectedTour);
+  
+      // Update the bookData object with the modified booking array
+      setBookData({
+        ...bookData,
+        booking: updatedBookingArray,
+      });
+  
+      console.log(selectedTour.name);
     }
+  } catch (error) {
+    // Handle any errors that might occur during the request
+    console.error('Error fetching data:', error);
+    // You might want to set an error state or show an error message to the user here
+  }
+}
+
 
     // const handleInputChange = (e) => {
     //     const { firstname, lastname, email, number, address, addressDetails, City, State, Country } = e.target;
@@ -202,7 +191,11 @@ function Booking() {
                                 <div className="booking_tour_form">
                                     <h3 className="heading_theme">Booking submission</h3>
                                     <div className="tour_booking_form_box">
-                                        <form onSubmit={handleSubmit} action="!#" id="tour_bookking_form_item">
+                                        <form onSubmit={isTourAlreadyBooked?handleSubmit: Swal.fire({
+        title: 'Sorry!',
+        text: 'you have already book this tour!',
+        icon: 'fail',
+    })}  id="tour_bookking_form_item">
                                             <div className="row">
                                                 <div className="col-lg-6">
                                                     <div className="form-group">

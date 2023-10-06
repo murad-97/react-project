@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
-function OntheSide({ valid_from, valid_till, price, overview }) {
+
+function OntheSide({ valid_from, valid_till, price, overview,id }) {
   if (!overview || !overview.tour_details) {
     return <div>Please Wait!</div>;
   }
@@ -52,8 +53,8 @@ function OntheSide({ valid_from, valid_till, price, overview }) {
 {/* ========husam======= */}
             
             <Link
-              to="/booking"
-              // to={`/booking/${tour.id}`}
+              // to="/booking"
+              to={`/booking/${id}`}
               className="btn btn_theme btn_md w-100"
             >
               Book Now

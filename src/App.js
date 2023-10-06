@@ -21,7 +21,7 @@ function App() {
         <Route path="/" element={<Master />}>
           <Route index path="/" element={<Home />} />
           <Route path="/product/1" element={<Honeymoon />} />
-          <Route path="/booking" element={<Booking />} />
+          <Route path="/booking/:id" element={<Booking />} />
 
           <Route path="/product/2" element={<Grouptour />} />
           <Route path="/product/3" element={<Indivisualtour />} />

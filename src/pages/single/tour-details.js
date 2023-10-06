@@ -112,7 +112,7 @@ function Single() {
             </div>
 
             {/* On the Side Component */}
-            <OntheSide valid_from={categoryData.valid_from} valid_till={categoryData.valid_till} price={categoryData.price} overview={categoryData}/>
+            <OntheSide valid_from={categoryData.valid_from} valid_till={categoryData.valid_till} price={categoryData.price} overview={categoryData} id ={categoryData.id} />
             {/* =================== */}
             
             {/* =============== */}
