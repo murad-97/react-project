@@ -6,9 +6,6 @@ import Single from "./pages/single/tour-details"
 import Login from "./pages/login/login"
 import Register from "./pages/register/register"
 import Master from "./layouts/master"
-import Honeymoon from "./pages/products/honeymoon"
-import Grouptour from "./pages/products/grouptour"
-import Indivisualtour from "./pages/products/indivisualtour"
 import Profile from "./pages/profile/mainprofile"
 import Product from "./pages/products/allproduct"
 
@@ -23,11 +20,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Master />}>
           <Route index path="/" element={<Home />} />
-          {/* <Route path="/product/1" element={<Honeymoon />} /> */}
           <Route path="/booking/:id" element={<Booking />} />
           <Route path="/product/:id" element={<Product />} />
-          {/* <Route path="/product/2" element={<Grouptour />} /> */}
-          {/* <Route path="/product/3" element={<Indivisualtour />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/single/:id" element={<Single />} />
