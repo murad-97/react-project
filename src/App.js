@@ -10,10 +10,8 @@ import Honeymoon from "./pages/products/honeymoon"
 import Grouptour from "./pages/products/grouptour"
 import Indivisualtour from "./pages/products/indivisualtour"
 import Profile from "./pages/profile/mainprofile"
-// import Booking from "./pages/profile/tour-booking"
+import Booking from "./pages/profile/tour-booking"
 import ProfileInfo from "./pages/profile/profile"
-
-import Booking from "./pages/booking/booking"
 
 function App() {
   return (
