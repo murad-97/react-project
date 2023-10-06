@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
-function OntheSide({ valid_from, valid_till, price, overview }) {
+
+function OntheSide({ valid_from, valid_till, price, overview,id }) {
   if (!overview || !overview.tour_details) {
     return <div>Please Wait!</div>;
   }
@@ -47,8 +48,13 @@ function OntheSide({ valid_from, valid_till, price, overview }) {
           </div>
           <div className="tour_select_offer_bar_bottom">
             {/* Use Link instead of button, and set the 'to' prop for the route */}
+            {/* ====husam============== */}
+            
+{/* ========husam======= */}
+            
             <Link
-              to="/your-route-here"
+              // to="/booking"
+              to={`/booking/${id}`}
               className="btn btn_theme btn_md w-100"
             >
               Book Now

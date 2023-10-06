@@ -1,7 +1,10 @@
-import React, { useState, useEffect,createContext } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import Header from '../common/header';
 import Footer from '../common/footer';
 import { useNavigate } from "react-router-dom";
+
+// Create a context
+export const MyContext = createContext();
 
 function Layout({ children }) {
   const navigate = useNavigate();
@@ -22,12 +25,13 @@ function Layout({ children }) {
     setIsLoggedIn(false);
     navigate("/");
   };
-
   return (
     <>
+    <MyContext.Provider value={{ isLoggedIn, handleLogout }}>
       <Header isLoggedIn={isLoggedIn} handleLogout={handleLogout}/> 
       {children}
       <Footer /> 
+      </MyContext.Provider>
     </>
   );
 }

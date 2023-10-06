@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
 
 
 const Register = () => {
@@ -60,7 +62,7 @@ const Register = () => {
                     <div class="common_bannner_text">
                         <h2>Register</h2>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><Link to="/" style={{ textDecoration: 'none', color: 'white' }} >Home</Link></li>
                             <li><span><i class="fas fa-circle"></i></span> Register</li>
                         </ul>
                     </div>
