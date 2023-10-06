@@ -1,6 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-export default function trending() {
+export default function Trending() {
+  const [categoryData, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://651a6056340309952f0d2d66.mockapi.io/Category")
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
   return (
     <>
         <div className="col-lg-12">

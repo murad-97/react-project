@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Nav from "react-bootstrap/Nav";
-
 import { NavLink } from "react-router-dom";
 
-import Indivisualtour from "../products/indivisualtour";
-import Grouptour from "../products/grouptour";
-import Honeymoon from "../products/honeymoon";
-import { Routes, Route } from "react-router-dom"; // Import Routes and Route from React Router
 
 export default function Category() {
   const [data, setData] = useState([]);
