@@ -46,8 +46,10 @@ console.log(tours[0]);
                 </p>
               </div>
               <div className="theme_two_box_content">
-                <h4>
-                  <a href="tour-details.html">{tour.name}</a>
+              <h4>
+                  <Link as={Link}
+                  exact
+                  to={`/single/${tour.id}`}>{tour.name}</Link>
                 </h4>
                 <p>
                   <span className="review_rating">{tour.rating} Excellent</span>{" "}
