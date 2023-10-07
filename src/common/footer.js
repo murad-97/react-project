@@ -29,34 +29,20 @@ export default function Footer() {
                     </a>
                   </h3>
                 </div>
-                <div className="footer_inquery_area">
-                  <h5>Follow us on</h5>
-                  <ul className="soical_icon_footer">
-                    <li>
-                      <a href="#!">
-                        <i className="fab fa-facebook"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <i className="fab fa-twitter-square"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <i className="fab fa-instagram"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+               
               </div>
             </div>
-            <div className="col-lg-2 offset-lg-1 col-md-6 col-sm-6 col-12">
+            <div className="col-lg-3 offset-lg-1 col-md-6 col-sm-6 col-12">
               <div className="footer_heading_area">
                 <h5>Company</h5>
               </div>
               <div className="footer_link_area">
                 <ul>
+                <li>
+                    <NavLink as={NavLink} exact to="/">
+                      Home
+                    </NavLink>
+                  </li>
                   <li>
                     <NavLink
                       as={NavLink}
@@ -68,84 +54,20 @@ export default function Footer() {
                     </NavLink>
                   </li>
                   <li>
-                    <a href="testimonials.html">Testimonials</a>
-                  </li>
-                  <li>
-                    <a href="faqs.html">Rewards</a>
-                  </li>
-                  <li>
-                    <a href="terms-service.html">Work with Us</a>
-                  </li>
-                  <li>
-                    <a href="tour-guides.html">Meet the Team </a>
-                  </li>
-                  <li>
-                    <a href="news.html">Blog</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-4 col-sm-6 col-12">
-              <div className="footer_heading_area">
-                <h5>Support</h5>
-              </div>
-              <div className="footer_link_area">
-                <ul>
-                  <li>
                     <NavLink to="/myprofile">Profile</NavLink>
-                  </li>
-                  <li>
-                    <a href="faq.html">Faq</a>
-                  </li>
-                  <li>
-                    <a href="testimonials.html">Legal</a>
                   </li>
                   <li>
                     <NavLink as={NavLink} exact to="/contact">
                       Contact us
                     </NavLink>
                   </li>
-                  <li>
-                    <a href="top-destinations.html"> Affiliate Program</a>
-                  </li>
-                  <li>
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                  </li>
+                  
+                  
                 </ul>
               </div>
             </div>
-            <div className="col-lg-2 col-md-4 col-sm-6 col-12">
-              <div className="footer_heading_area">
-                <h5>Other Services</h5>
-              </div>
-              <div className="footer_link_area">
-                <ul>
-                  <li>
-                    <a href="top-destinations-details.html">
-                      Community program
-                    </a>
-                  </li>
-                  <li>
-                    <a href="top-destinations-details.html">
-                      Investor Relations
-                    </a>
-                  </li>
-                  <li>
-                    <a href="flight-search-result.html">Rewards Program</a>
-                  </li>
-                  <li>
-                    <a href="room-booking.html">PointsPLUS</a>
-                  </li>
-                  <li>
-                    <a href="testimonials.html">Partners</a>
-                  </li>
-                  <li>
-                    <a href="hotel-search.html">List My Hotel</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-lg-2 col-md-4 col-sm-6 col-12">
+            
+            <div className="col-lg-3 col-md-4 col-sm-6 col-12">
               <div className="footer_heading_area">
                 <h5>Top destinations</h5>
               </div>
@@ -184,6 +106,32 @@ export default function Footer() {
                 </ul>
               </div>
             </div>
+
+            <div className="col-lg-2 col-md-4 col-sm-6 col-12">
+              <div className="footer_heading_area">
+              <h5>Follow us on</h5>
+                  <ul className="soical_icon_footer">
+                    <li>
+                      <a href="#!">
+                        <i className="fab fa-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#!">
+                        <i className="fab fa-twitter-square"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#!">
+                        <i className="fab fa-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
+              </div>
+              
+            </div>
+
+            
           </div>
         </div>
       </footer>
