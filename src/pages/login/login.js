@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,8 +27,8 @@ const Login = () => {
         sessionStorage.setItem("isLoggedIn", true);
         sessionStorage.setItem("userEmail", user.email);
         sessionStorage.setItem("userid", user.id);
-
-        navigate("/");
+        console.log(user.id);
+        navigate(-1);
       } else {
         setMessage("Invalid email or password. Please try again.");
       }
@@ -63,7 +65,7 @@ const Login = () => {
                     <div class="common_bannner_text">
                         <h2>Login</h2>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><Link to="/" style={{ textDecoration: 'none', color: 'white' }} >Home</Link></li>
                             <li><span><i class="fas fa-circle"></i></span> Login</li>
                         </ul>
                     </div>

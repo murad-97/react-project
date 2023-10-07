@@ -10,7 +10,8 @@ import Honeymoon from "./pages/products/honeymoon"
 import Grouptour from "./pages/products/grouptour"
 import Indivisualtour from "./pages/products/indivisualtour"
 import Profile from "./pages/profile/mainprofile"
-import Booking from "./pages/profile/tour-booking"
+
+import Booking from "./pages/booking/booking"
 import ProfileInfo from "./pages/profile/profile"
 import Contact from './pages/contact/contact';
 
@@ -21,6 +22,8 @@ function App() {
         <Route path="/" element={<Master />}>
           <Route index path="/" element={<Home />} />
           <Route path="/product/1" element={<Honeymoon />} />
+          <Route path="/booking/:id" element={<Booking />} />
+
           <Route path="/product/2" element={<Grouptour />} />
           <Route path="/product/3" element={<Indivisualtour />} />
           <Route path="/about" element={<About />} />
@@ -28,7 +31,7 @@ function App() {
           <Route path="/single/:id" element={<Single />} />
         <Route path="/myprofile" element={<Profile />}>
           <Route index element={<ProfileInfo />} /> {/* Use "index" to match the default sub-route */}
-          <Route path="booking" element={<Booking />} />
+          {/* <Route path="booking" element={<Booking />} /> */}
         </Route>
         </Route>
 

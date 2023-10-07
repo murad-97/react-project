@@ -14,6 +14,8 @@ import { useParams } from "react-router-dom";
 // import HelmetComponent from "./components/helmet"
 import { Link } from "react-router-dom";
 
+
+
 function Single() {
   const { id } = useParams();
   const [categoryData, setData] = useState([]);
@@ -32,6 +34,12 @@ function Single() {
           );
           setData(selectedTour);
           console.log(selectedTour.name); // Wrap the response in an array for mapping
+          // =husam==============================================================
+          // const selectedTourss = sessionStorage.setItem("selectedTourss", selectedTour.name);
+         
+          // console.log(selectedTourss);
+          // ==husam==================================================================
+          console.log(selectedTour.name) ;// Wrap the response in an array for mapping
         })
         .catch((error) => {
           console.error(error);
@@ -41,6 +49,7 @@ function Single() {
   if (!categoryData) {
     return <div></div>;
   }
+
   return (
     <>
       {/* Common Banner Area */}
