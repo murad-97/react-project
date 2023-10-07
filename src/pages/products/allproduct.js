@@ -448,7 +448,7 @@ const Products = ({ onSearch }) => {
               <div className="cta_left">
                 <div className="cta_icon">
                   <img
-                    src="https://andit.co/projects/html/and-tour/demo/assets/img/common/email.png"
+                    src="http://localhost:3000/assets/img/common/email.png"
                     alt="icon"
                   />
                 </div>
