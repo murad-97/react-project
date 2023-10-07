@@ -1,4 +1,4 @@
-import React, { useRef, useEffect,useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import TourDetails from "./components/tour-details";
 import ImageSlider from "./components/image-slidder";
 import Overview from "./components/overview";
@@ -25,12 +25,15 @@ function Single() {
 
     if (id) {
       // setTourIdFromSession(tourId);
-      const category=sessionStorage.getItem('category');
+      const category = sessionStorage.getItem("category");
       axios
         .get(`https://651a6056340309952f0d2d66.mockapi.io/Category/${category}`)
         .then((response) => {
-          const selectedTour =  response.data.tour.find((tour) => tour.id === id);
+          const selectedTour = response.data.tour.find(
+            (tour) => tour.id === id
+          );
           setData(selectedTour);
+          console.log(selectedTour.name); // Wrap the response in an array for mapping
           // =husam==============================================================
           // const selectedTourss = sessionStorage.setItem("selectedTourss", selectedTour.name);
          
@@ -43,31 +46,58 @@ function Single() {
         });
     }
   }, []);
-  if(!categoryData){
-    return <div>hi</div>
+  if (!categoryData) {
+    return <div></div>;
   }
 
   return (
     <>
-
-
       {/* Common Banner Area */}
       <section id="common_banner">
-   
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
               <div className="common_bannner_text">
-                <h2>Explore the {categoryData.name}</h2>
+                <h2 style={{
+                        
+                        fontSize: "40px",
+                      }}>Explore the {categoryData.name}</h2>
                 <ul>
-                  <li><Link to="/" style={{ textDecoration:"none", color: "white" }}> Home</Link>
-                  </li><li>
+                <li>
+                    <Link
+                      to="/"
+                      style={{
+                        textDecoration: "none",
+                        color: "white",
+                        fontSize: "18px",
+                      }}
+                    >
+                      Home
+                    </Link>
+                  </li>
+                  
+                  <li>
+                    <Link
+                      to={`/product/1`}
+                      style={{
+                        textDecoration: "none",
+                        color: "white",
+                        fontSize: "18px",
+                      }}
+                    >
+                      Tours
+                    </Link>
+                  </li>
+                  <li   style={{
+                        textDecoration: "none",
+                        color: "white",
+                        fontSize: "18px",
+                      }}>
                     <span>
                       <i className="fas fa-circle"></i>
-                    </span>
-                    <a href="tour-search.html">Tours</a>
+                    </span>{" "}
+                    Tours Details
                   </li>
-                  <li><span><i className="fas fa-circle"></i></span>{" "} Tours Details</li>
                 </ul>
               </div>
             </div>
@@ -79,95 +109,55 @@ function Single() {
       <section id="tour_details_main" className="section_padding">
         <div className="container">
           <div className="row">
-          <div className="col-lg-10" style={{ marginLeft: '100px', marginRight: '10px' }}>
-  {/* Tour Details component */}
-  <TourDetails
-    name={categoryData.name}
-    location={categoryData.location}
-    n_reviews={categoryData.n_reviews}
-    rating={categoryData.rating}
-    duration={categoryData.duration}
-    tour_type={categoryData.tour_type}
-    group_size={categoryData.group_size}
-  />
-</div>
+            <div className="col-lg-11" style={{ marginLeft: "40px" }}>
+              {/* Tour Details component */}
+              <TourDetails
+                name={categoryData.name}
+                location={categoryData.location}
+                n_reviews={categoryData.n_reviews}
+                rating={categoryData.rating}
+                duration={categoryData.duration}
+                tour_type={categoryData.tour_type}
+                group_size={categoryData.group_size}
+              />
+            </div>
 
-                <div className="col-lg-8">
-              
-                <div className="tour_details_leftside_wrapper">
+            <div className="col-lg-8">
+              <div className="tour_details_leftside_wrapper">
                 {/* Use the ImageSlider component */}
-                <ImageSlider image1={categoryData.image1} image2={categoryData.image2} 
-                image3={categoryData.image3} image4={categoryData.image4}/>
-
+                <ImageSlider
+                  image1={categoryData.image1}
+                  image2={categoryData.image2}
+                  image3={categoryData.image3}
+                  image4={categoryData.image4}
+                />
+                <br></br>
                 {/* Overview component */}
                 <Overview overview={categoryData} />
-
+                
                 {/* Itinerary component */}
                 <Itinerary itinerary={categoryData} />
-
-                {/* Map component */}
-                <Map map={categoryData.map}/>
-
               </div>
             </div>
 
             {/* On the Side Component */}
-            <OntheSide valid_from={categoryData.valid_from} valid_till={categoryData.valid_till} price={categoryData.price} overview={categoryData} id ={categoryData.id} />
-            {/* =================== */}
-            
-            {/* =============== */}
+            <OntheSide
+              valid_from={categoryData.valid_from}
+              valid_till={categoryData.valid_till}
+              price={categoryData.price}
+              overview={categoryData}
+            />
           </div>
         </div>
-        {/* Reviews  Component */}
-        <CustomerReviews />
-
+        <div className="col-lg-11" style={{ marginLeft: "55px" }}>
+          {/* Map component */}
+          <Map map={categoryData.map} />
+        </div>
+        <div className="col-lg-11" style={{ marginLeft: "55px" }}>
+          {/* Reviews  Component */}
+          <CustomerReviews />
+        </div>
       </section>
-
-      <section id="related_tour_packages" className="section_padding_bottom">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="section_heading_center">
-              <h2>Related tour packages</h2>
-              
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="promotional_tour_slider owl-theme owl-carousel dot_style">
-              {/* Individual tour package items */}
-              {/* You can map through your tour data here and create individual items */}
-              {/* Example:
-              {tourData.map((tour, index) => (
-                <div key={index} className="theme_common_box_two img_hover">
-                  <div className="theme_two_box_img">
-                    <img src={tour.imageSrc} alt={tour.altText} />
-                    <p>
-                      <i className="fas fa-map-marker-alt"></i>
-                      {tour.location}
-                    </p>
-                  </div>
-                  <div className="theme_two_box_content">
-                    <h4>
-                      <a href={tour.link}>{tour.title}</a>
-                    </h4>
-                    <p>
-                      <span className="review_rating">{tour.rating}</span>{" "}
-                      <span className="review_count">{tour.reviews}</span>
-                    </p>
-                    <h3>
-                      {tour.price} <span>{tour.priceDescription}</span>
-                    </h3>
-                  </div>
-                </div>
-              ))}
-              */}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
       {/* Cta Area */}
 
@@ -176,9 +166,9 @@ function Single() {
           <div className="row align-items-center">
             <div className="col-lg-7">
               <div className="cta_left">
-                <div className="cta_icon">
-                  <img src="assets/img/common/email.png" alt="icon" />
-                </div>
+              <div className="cta_icon">
+              <img src="https://andit.co/projects/html/and-tour/demo/assets/img/common/email.png" alt="icon"/>
+              </div>
                 <div className="cta_content">
                   <h4>Get the latest news and offers</h4>
                   <h2>Subscribe to our newsletter</h2>
@@ -205,8 +195,7 @@ function Single() {
         </div>
       </section>
 
-{/* <HelmetComponent/> */}
-
+      {/* <HelmetComponent/> */}
     </>
   );
 }
