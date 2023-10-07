@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { MyContext } from "../../layouts/master"; 
+
 
 
 const Login = () => {
+  const {handleLogin} = useContext(MyContext); // Use useContext to access the context
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState({ email: "", password: "" });
   const [message, setMessage] = useState("");
@@ -28,7 +31,7 @@ const Login = () => {
         sessionStorage.setItem("userEmail", user.email);
         sessionStorage.setItem("userid", user.id);
         console.log(user.id);
-        navigate(-1);
+        handleLogin();
       } else {
         setMessage("Invalid email or password. Please try again.");
       }
