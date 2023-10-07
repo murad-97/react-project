@@ -4,7 +4,7 @@ function CustomerReviews() {
   return (
     <div className="container">
     <div className="row">
-      <div className="col-lg-8">
+      <div className="col-lg-12">
         <div className="write_your_review_wrapper">
           <h3 className="heading_theme">Write your review</h3>
           <div className="write_review_inner_boxed">
@@ -27,7 +27,9 @@ function CustomerReviews() {
                       placeholder="Enter email address"
                     />
                   </div>
+                  <br></br>
                 </div>
+               
                 <div className="col-lg-12">
                   <div className="form-group">
                     <textarea
@@ -36,6 +38,7 @@ function CustomerReviews() {
                       className="form-control bg_input"
                     ></textarea>
                   </div>
+                  <br></br>
                   <div className="comment_form_submit">
                     <button className="btn btn_theme btn_md">
                       Post comment

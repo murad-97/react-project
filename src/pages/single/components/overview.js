@@ -8,7 +8,9 @@ function Overview({ overview }) {
     return <div>Please Wait!</div>
   }
   return (
+    
     <div className="tour_details_boxed">
+      
       <h3 className="heading_theme">Overview</h3>
       <div className="tour_details_boxed_inner">
         <p>{overview.overview}</p>
@@ -21,6 +23,7 @@ function Overview({ overview }) {
         </ul>
       </div>
     </div>
+    
   );
 }
 

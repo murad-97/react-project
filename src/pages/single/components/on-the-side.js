@@ -27,7 +27,7 @@ function OntheSide({ valid_from, valid_till, price, overview }) {
             <br />
             <div className="tour_package_details_bar_list">
               <h5>Package details</h5>
-              <ul>
+              <ul style={{ fontSize: '18px' }}>
                 {overview.tour_details.map((detail, index) => (
                   <li key={index}>
                     <i className="fas fa-circle"></i> {detail.note}
@@ -55,39 +55,46 @@ function OntheSide({ valid_from, valid_till, price, overview }) {
             </Link>
           </div>
         </div>
-        <br />
+        
+       
         <div className="tour_detail_right_sidebar">
-          <div className="tour_details_right_boxed">
-            <div className="tour_details_right_box_heading">
-              <h3>Why choose us</h3>
-            </div>
-            <br />
-            <div className="tour_package_details_bar_list first_child_padding_none">
-              <ul>
-                <li>
-                  <i className="fas fa-circle"></i> Buffet breakfast as per the Itinerary
-                </li>
-                <li>
-                  <i className="fas fa-circle"></i> All toll tax, parking, fuel, and driver allowances
-                </li>
-                <li>
-                  <i className="fas fa-circle"></i> Comfortable and hygienic vehicle
-                </li>
-                <li>
-                  <i className="fas fa-circle"></i> Comfortable and hygienic vehicle
-                </li>
-                <li>
-                  <i className="fas fa-circle"></i> Your safety is our priority. We take all necessary precautions and have support systems in place.
-                </li>
-                <li>
-                  <i className="fas fa-circle"></i> Our customer support team is available 24/7 to assist you with any inquiries
-                </li>
+        <div className="tour_detail_right_sidebar">
+  <div className="tour_details_right_boxed">
+    <div className="tour_details_right_box_heading">
+      <h3>Why choose us</h3>
+    </div>
+    <br />
+    <div className="tour_package_details_bar_list first_child_padding_none">
+      <ul style={{ fontSize: '18px' }}> {/* Adjust the font size as needed */}
+        <li>
+          <i className="fas fa-circle"></i> Buffet breakfast as per the Itinerary
+        </li>
+        <li>
+          <i className="fas fa-circle"></i> All toll tax, parking, fuel, and driver allowances
+        </li>
+        <li>
+          <i className="fas fa-circle"></i> Comfortable and hygienic vehicle
+        </li>
+        <li>
+          <i className="fas fa-circle"></i> Your safety is our priority. We take all necessary precautions and have support systems in place.
+        </li>
+        <li>
+          <i className="fas fa-circle"></i> Our customer support team is available 24/7 to assist you with any inquiries
+        </li>
+        <li>
+          <i className="fas fa-circle"></i> Experienced tour guides to make your trip informative and enjoyable
+        </li>
+        <li>
+          <i className="fas fa-circle"></i> Customized itineraries to suit your preferences and interests
+        </li>
+      </ul>
+      <br></br>
+    </div>
+  </div>
+</div>
 
+</div>
 
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
