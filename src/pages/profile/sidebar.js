@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 import Nav from "react-bootstrap/Nav";
 
-const Sidebar = () => {
+const Sidebar = ({registerData}) => {
+  console.log(registerData);
     const { isLoggedIn, handleLogout } = useContext(MyContext);
     const navigate = useNavigate();
    
@@ -15,12 +16,12 @@ const Sidebar = () => {
         <div className="dashboard_sidebar">
           <div className="dashboard_sidebar_user">
             <img src="https://cdn-icons-png.flaticon.com/512/3541/3541871.png" alt="img" />
-            <h3>Sherlyn Chopra</h3>
+            <h3>{registerData.name}</h3>
             <p>
-              <a href="tel:+00-123-456-789">+00 123 456 789</a>
+              <a href="tel:+00-123-456-789">{registerData.phone}</a>
             </p>
             <p>
-              <a href="mailto:sherlyn@domain.com">sherlyn@domain.com</a>
+              <a href="mailto:sherlyn@domain.com">{registerData.email}</a>
             </p>
           </div>
           <div className="dashboard_menu_area">
@@ -33,30 +34,7 @@ const Sidebar = () => {
                   Profile info
                 </Nav.Link>
               </li>
-              <li style={{ padding: "0.5rem 1rem" }}
-                className="dashboard_dropdown_button"
-                id="dashboard_dropdowns">
-                <i className="fas fa-address-card"></i>My bookings
-                <span>
-                  {" "}
-                  <i className="fas fa-angle-down"></i>
-                </span>
-                <div
-                  className="booing_sidebar_dashboard"
-                  id="show_dropdown_item"
-                  style={{ display: "none" }}>
-                  <ul>
-                    
-                    <li >
-                      <Nav.Link
-                        as={NavLink}
-                        exact
-                        to="/myprofile/booking"
-                      >
-                        <i className="fas fa-history"></i>Pending tours
-                      </Nav.Link>
-                    </li>
-                    <li>
+              <li>
                       <Nav.Link
                         as={NavLink}
                         to="/myprofile/booking"
@@ -64,9 +42,6 @@ const Sidebar = () => {
                        <i className="fas fa-hotel"></i> Completed tours
                       </Nav.Link>
                     </li>
-                  </ul>
-                </div>
-              </li>
               
              
              

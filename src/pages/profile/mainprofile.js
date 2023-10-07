@@ -1,10 +1,33 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
 import Profile from "./profile";
 import Sidebar from "./sidebar";
 import Booking from "./sidebar";
+import axios from "axios";
+import { fetchData } from "./api"; 
 
 const Mainprofile = () => {
+  const [registerData, setRegisterData] = useState({ name: "", email: "", phone: "" });
+useEffect(() => {
+  fetchUserData()
+},[])
+
+async function fetchUserData() {
+  try {
+    const data = await fetchData(sessionStorage.getItem("userid"));
+    setRegisterData({
+      name: data.name,
+      email: data.email,
+      phone: data.phone
+    });
+  } catch (error) {
+    // Handle error
+  }
+
+
+// ... rest of your component code ...
+}
+  console.log(registerData);
   return (
     <>
       <section id="common_banner">
@@ -39,9 +62,9 @@ const Mainprofile = () => {
       <section id="dashboard_main_arae" className="section_padding">
         <div className="container">
           <div className="row">
-            <Sidebar />
+            <Sidebar registerData={registerData} />
             <Routes>
-              {/* <Route index path="/myprofile" element={<Profile />}></Route> */}
+              {/* <Route index path="/myprofile" element={<Profile registerData={registerData} fetch= {fetch} />}></Route> */}
               <Route path="/myprofile/booking" element={<Booking />}></Route>
             </Routes>
             <Outlet/>

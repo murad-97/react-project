@@ -11,7 +11,9 @@ import Product from "./pages/products/allproduct"
 
 
 import Booking from "./pages/booking/booking"
+// import Profile from "./pages/profile/mainprofile"
 import ProfileInfo from "./pages/profile/profile"
+import Profiletour from "./pages/profile/tour-booking"
 import Contact from './pages/contact/contact';
 
 function App() {
@@ -27,12 +29,12 @@ function App() {
           <Route path="/single/:id" element={<Single />} />
         <Route path="/myprofile" element={<Profile />}>
           <Route index element={<ProfileInfo />} /> {/* Use "index" to match the default sub-route */}
-          {/* <Route path="booking" element={<Booking />} /> */}
+          <Route path="booking" element={<Profiletour />} />
         </Route>
-        </Route>
-
-
         <Route path="login" element={<Login />} />
+        </Route>
+
+
         <Route path="register" element={<Register />} />
       </Routes>
     </BrowserRouter>

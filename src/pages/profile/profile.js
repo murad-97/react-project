@@ -2,13 +2,14 @@
 import React, { useState,useEffect, } from "react";
 import axios from "axios";
 import Swal from 'sweetalert2';
+import { fetchData } from "./api";
 function MyProfile() {
 
     const [registerData, setRegisterData] = useState({ name: "", email: "", phone: "" });
     
 
 useEffect(() => {
-    fetchData()
+  fetchUserData()
 }, []);
 
 const showAlert = () => {
@@ -18,19 +19,18 @@ const showAlert = () => {
       icon: 'success',
     })};
 
-    async function fetchData() {
-        try {
-          const response = await axios.get(`https://651a6344340309952f0d333a.mockapi.io/hasan/${sessionStorage.getItem("userid")}`);
-          const data = response.data;
-          setRegisterData({name: data.name,email: data.email,phone: data.phone})
-          
-          // Now you can work with the 'data' object
-        //   console.log(data);
-        } catch (error) {
-          // Handle any errors that might occur during the request
-          console.error(error);
-        }
+    async function fetchUserData() {
+      try {
+        const data = await fetchData(sessionStorage.getItem("userid"));
+        setRegisterData({
+          name: data.name,
+          email: data.email,
+          phone: data.phone
+        });
+      } catch (error) {
+        // Handle error
       }
+    }
 
 
     // const axios = require('axios');
@@ -46,8 +46,7 @@ const handleSubmit = async (e) => {
     });
     showAlert()
     console.log("Registration successful!");
-    fetchData()
-    
+    fetchUserData()
     
   } catch (error) {
     console.error("Error during registration:", error);

@@ -17,7 +17,12 @@ function Layout({ children }) {
       setIsLoggedIn(storedIsLoggedIn === "true");
     }
   }, []);
-
+  
+  const handleLogin = () => {
+    
+    setIsLoggedIn(true);
+    navigate(-1);
+  }
   const handleLogout = () => {
     // Perform the logout logic, e.g., clearing session storage or making an API call.
     sessionStorage.setItem('isLoggedIn', 'false');
@@ -25,9 +30,10 @@ function Layout({ children }) {
     setIsLoggedIn(false);
     navigate("/");
   };
+  
   return (
     <>
-    <MyContext.Provider value={{ isLoggedIn, handleLogout }}>
+    <MyContext.Provider value={{ isLoggedIn, handleLogout,handleLogin }}>
       <Header isLoggedIn={isLoggedIn} handleLogout={handleLogout}/> 
       {children}
       <Footer /> 

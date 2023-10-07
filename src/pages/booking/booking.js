@@ -1,17 +1,19 @@
 import React, { useEffect, useState,useContext } from "react";
 import { MyContext } from "../../layouts/master"; 
-
+// import { saveCurrentUrl } from '../../common/utility';
 import axios from "axios";
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 function Booking() {
+
+
     const { isLoggedIn, handleLogout } = useContext(MyContext);
 
   const navigate = useNavigate();
   const { id } = useParams();
-  const [bookData, setBookData] = useState({
+  const [data, setdata] = useState({
     name: "",
     email: "",
     phone: "",
@@ -41,7 +43,26 @@ function Booking() {
 
   useEffect(() => {
       if (!isLoggedIn) {
-      navigate("/login")
+        Swal.fire({
+            title: 'You must log in',
+            text: 'Please log in to continue.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Log In',
+            cancelButtonText: 'Cancel',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Redirect the user to the login page here
+              navigate("/login") // Change the URL as needed
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                // If the user clicked "Cancel," go back to the previous page
+                navigate(-1);
+              }else if (result.dismiss === Swal.DismissReason.backdrop) {
+                // If the user clicked outside the Swal border, go back to the previous page
+                navigate(-1);
+              }
+          });
+      
   }
     fetchData();
   }, []);
@@ -58,7 +79,7 @@ function Booking() {
        if (data.booking === undefined ) {
       data.booking = [];
     }
-      setBookData({
+      setdata({
         name: data.name,
         email: data.email,
         phone: data.phone,
@@ -81,19 +102,19 @@ function Booking() {
       const selectedTour = secondResponse.data.tour.find((tour) => tour.id === id);
       setData(selectedTour);
       setselectedTour(selectedTour);
-  console.log(data.booking);
+  console.log(data.name);
       // Update the isTourAlreadyBooked state based on the booking data
-      const isAlreadyBooked = bookData.booking?.some((booking) => booking.id === id);
+      const isAlreadyBooked = data.booking?.some((booking) => booking.id === id);
       setIsTourAlreadyBooked(isAlreadyBooked);
-      if (!isTourAlreadyBooked) {
-        const updatedBookingArray = [...bookData.booking];
+      
+        const updatedBookingArray = [...data.booking];
         updatedBookingArray.push(selectedTour);
 
-        // Update the bookData object with the modified booking array
-        setBookData({
-          ...bookData,
+        // Update the data object with the modified booking array
+        setdata({
+          ...data,
           booking: updatedBookingArray,
-        });}
+        });
 
 
 
@@ -112,15 +133,15 @@ function Booking() {
 
 
 
+  console.log(isTourAlreadyBooked);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setBookData({ ...bookData, [name]: value });
+    setdata({ ...data, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-      console.log(isTourAlreadyBooked);
 
     if (!isTourAlreadyBooked) {
         
@@ -128,7 +149,7 @@ function Booking() {
       try {
         await axios.put(
           `https://651a6344340309952f0d333a.mockapi.io/hasan/${sessionStorage.getItem("userid")}`,
-          bookData,
+          data,
           {
             headers: {
               "Content-Type": "application/json",
@@ -152,16 +173,16 @@ function Booking() {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8">
+                                    <h3 className="heading_theme">Booking submission</h3>
                             <div className="tou_booking_form_Wrapper">
 
                                 <div className="booking_tour_form">
-                                    <h3 className="heading_theme">Booking submission</h3>
                                     <div className="tour_booking_form_box">
                                         <form onSubmit={handleSubmit}  id="tour_bookking_form_item">
                                             <div className="row">
                                                 <div className="col-lg-6">
                                                     <div className="form-group">
-                                                        <input value={bookData.name}
+                                                        <input value={data.name}
                                                             onChange={handleInputChange}
                                                             name="name"
                                                             type="text" className="form-control bg_input"
@@ -170,7 +191,7 @@ function Booking() {
                                                 </div>
                                                 {/* <div className="col-lg-6">
                                                     <div className="form-group">
-                                                        <input value={bookData.lastname}
+                                                        <input value={data.lastname}
                                                             onChange={handleInputChange}
                                                             name="lastname"
                                                             type="text" className="form-control bg_input"
@@ -180,7 +201,7 @@ function Booking() {
                                                 <div className="col-lg-6">
                                                     <div className="form-group">
                                                         <input
-                                                            value={bookData.email}
+                                                            value={data.email}
                                                             onChange={handleInputChange}
                                                             name="email"
                                                             type="text" className="form-control bg_input"
@@ -189,7 +210,7 @@ function Booking() {
                                                 </div>
                                                 <div className="col-lg-6">
                                                     <div className="form-group">
-                                                        <input value={bookData.phone}
+                                                        <input value={data.phone}
                                                             onChange={handleInputChange}
                                                             name="phone"
                                                             type="text" className="form-control bg_input"
@@ -198,7 +219,7 @@ function Booking() {
                                                 </div>
                                                 <div className="col-lg-12">
                                                     <div className="form-group">
-                                                        <input value={bookData.address}
+                                                        <input value={data.address}
                                                             name="address"
                                                             onChange={handleInputChange} type="text" className="form-control bg_input"
                                                             placeholder="Street address" />
@@ -207,7 +228,7 @@ function Booking() {
                                               
                                                 <div className="col-lg-6">
                                                     <div className="form-group">
-                                                        <input value={bookData.State}
+                                                        <input value={data.State}
                                                             name="State"
                                                             onChange={handleInputChange} type="text" className="form-control bg_input"
                                                             placeholder="State" />
@@ -215,7 +236,7 @@ function Booking() {
                                                 </div>
                                                 <div className="col-lg-6">
                                                     <div className="form-group">
-                                                        <input value={bookData.Country}
+                                                        <input value={data.Country}
                                                             name="Country"
                                                             onChange={handleInputChange} type="text" className="form-control bg_input"
                                                             placeholder="Country" />
@@ -228,11 +249,11 @@ function Booking() {
                                                             onChange={handleInputChange}
                                                             name="City"
                                                             className="form-control form-select bg_input">
-                                                            <option value={bookData.City} >Khulna</option>
-                                                            <option value={bookData.City} >New York</option>
-                                                            <option value={bookData.City} >Barisal</option>
-                                                            <option value={bookData.City}  >Nator</option>
-                                                            <option value={bookData.City} >Joybangla</option>
+                                                            <option value={data.City} >Khulna</option>
+                                                            <option value={data.City} >New York</option>
+                                                            <option value={data.City} >Barisal</option>
+                                                            <option value={data.City}  >Nator</option>
+                                                            <option value={data.City} >Joybangla</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -242,11 +263,11 @@ function Booking() {
                                                         <select onChange={handleInputChange}
                                                             name="State"
                                                          className="form-control form-select bg_input">
-                                                            <option value={bookData.State}  >State</option>
-                                                            <option value={bookData.State} >New York</option>
-                                                            <option value={bookData.State} >Barisal</option>
-                                                            <option value={bookData.State} >Nator</option>
-                                                            <option value={bookData.State}  >Joybangla</option>
+                                                            <option value={data.State}  >State</option>
+                                                            <option value={data.State} >New York</option>
+                                                            <option value={data.State} >Barisal</option>
+                                                            <option value={data.State} >Nator</option>
+                                                            <option value={data.State}  >Joybangla</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -255,11 +276,11 @@ function Booking() {
                                                         <select onChange={handleInputChange}
                                                             name="Country"
                                                          className="form-control form-select bg_input">
-                                                            <option value={bookData.Country} >Country</option>
-                                                            <option value={bookData.Country} >New York</option>
-                                                            <option value={bookData.Country} >Barisal</option>
-                                                            <option value={bookData.Country} >Nator</option>
-                                                            <option value={bookData.Country}  >Joybangla</option>
+                                                            <option value={data.Country} >Country</option>
+                                                            <option value={data.Country} >New York</option>
+                                                            <option value={data.Country} >Barisal</option>
+                                                            <option value={data.Country} >Nator</option>
+                                                            <option value={data.Country}  >Joybangla</option>
                                                         </select>
                                                     </div>
                                                 </div> */}
@@ -299,11 +320,11 @@ function Booking() {
                                         <div className="valid_date_area">
                                             <div className="valid_date_area_one">
                                                 <h5>Valid from</h5>
-                                                <p>01 Feb 2022</p>
+                                                <p>{selectedTour.valid_from}</p>
                                             </div>
                                             <div className="valid_date_area_one">
                                                 <h5>Valid till</h5>
-                                                <p>15 Feb 2022</p>
+                                                <p>{selectedTour.valid_till}</p>
                                             </div>
                                         </div>
                                         <div className="tour_package_details_bar_list">
@@ -322,116 +343,15 @@ function Booking() {
                                         <div className="tour_package_details_bar_price">
                                             <h5>Price</h5>
                                             <div className="tour_package_bar_price">
-                                                <h6><del>$ 35,500</del></h6>
-                                                <h3>$ 30,500 <sub>/Per serson</sub> </h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tour_detail_right_sidebar">
-                                    <div className="tour_details_right_boxed">
-                                        <div className="tour_details_right_box_heading">
-                                            <h3>Travel date</h3>
-                                        </div>
-                                        <div className="edit_date_form">
-                                            <div className="form-group">
-                                                <label for="dates">Edit Date</label>
-                                                <input value={bookData.date}
-                                                    onChange={handleInputChange}
-                                                    name="date" type="date" id="dates" className="form-control" />
-                                            </div>
-                                        </div>
-                                        <div className="tour_package_details_bar_list">
-                                            <h5>Tourist</h5>
-                                            <div className="select_person_item">
-                                                <div className="select_person_left">
-                                                    <h6>Adult</h6>
                                                 
-                                                    <p>12y+</p>
-                                                </div>
-                                                <div className="select_person_right">
-                                                    {/* <h6>01</h6> */}
-                                                    <input value={bookData.adult}
-                                                        onChange={handleInputChange}
-                                                        name="adult" type="number" className="form-control" />
-                                                </div>
-                                            </div>
-
-                                            <div className="select_person_item">
-                                                <div className="select_person_left">
-                                                    <h6>Children</h6>
-                                                    <p>2 - 12 years</p>
-                                                </div>
-                                                <div className="select_person_right">
-                                                    {/* <h6>01</h6> */}
-                                                    <input value={bookData.children}
-                                                        onChange={handleInputChange}
-                                                        name="children" type="number" className="form-control" />
-                                                </div>
-                                            </div>
-                                            <div className="select_person_item">
-                                                <div className="select_person_left">
-                                                    <h6>Infant</h6>
-                                                    <p>Below 2 years</p>
-                                                </div>
-                                                <div className="select_person_right">
-                                                    {/* <h6>01</h6> */}
-                                                    <input value={bookData.infant}
-                                                        onChange={handleInputChange}
-                                                        name="infant" type="number" className="form-control" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* <div className="edit_person">
-                                            <p>Edit person</p>
-                                        </div> */}
-                                    </div>
-                                </div>
-                                <div className="tour_detail_right_sidebar">
-                                    <div className="tour_details_right_boxed">
-                                        <div className="tour_details_right_box_heading">
-                                            <h3>Coupon code</h3>
-                                        </div>
-                                        <div className="coupon_code_area_booking">
-                                            <form action="#!">
-                                                <div className="form-group">
-                                                    <input type="text" className="form-control bg_input"
-                                                        placeholder="Enter coupon code" />
-                                                </div>
-                                                <div className="coupon_code_submit">
-                                                    <button className="btn btn_theme btn_md">Apply voucher</button>
-                                                </div>
-                                            </form>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div className="tour_detail_right_sidebar">
-                                    <div className="tour_details_right_boxed">
-                                        <div className="tour_details_right_box_heading">
-                                            <h3>Booking amount</h3>
-                                        </div>
-
-                                        <div className="tour_booking_amount_area">
-                                            <ul>
-                                                <li>Adult Price x 1 <span>$40,000.00</span></li>
-                                                <li>Discount <span>-10%</span></li>
-                                                <li>Tax<span>5%</span></li>
-                                            </ul>
-                                            <div className="tour_bokking_subtotal_area">
-                                                <h6>Subtotal <span>$38,000.00</span></h6>
-                                            </div>
-                                            <div className="coupon_add_area">
-                                                <h6><span className="remove_coupon_tour">Remove</span> Coupon code (OFF 5000)
-                                                    <span>$5,000.00</span>
-                                                </h6>
-                                            </div>
-                                            <div className="total_subtotal_booking">
-                                                <h6>Total Amount <span>$33,000.00</span> </h6>
+                                                <h3>$ {selectedTour.price} <sub>/Per serson</sub> </h3>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                               
+                             
+                                
                             </div>
                         </div>
                         {/* <Comp4 /> */}
