@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { useParams } from "react-router-dom";
+
 
 
 function OntheSide({ valid_from, valid_till, price, overview,id }) {
+  console.log(id);
   if (!overview || !overview.tour_details) {
     return <div>Please Wait!</div>;
   }

@@ -146,6 +146,7 @@ function Single() {
               valid_till={categoryData.valid_till}
               price={categoryData.price}
               overview={categoryData}
+              id = {categoryData.id}
             />
           </div>
         </div>
