@@ -11,6 +11,7 @@ const Products = () => {
   const { id } = useParams();
   const toursPerPage = 6; // Number of tours to display per page
   const [currentPage, setCurrentPage] = useState(1);
+  
 
   sessionStorage.setItem("category", id);
 
