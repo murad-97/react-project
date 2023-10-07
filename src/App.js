@@ -16,6 +16,8 @@ import ProfileInfo from "./pages/profile/profile"
 import Profiletour from "./pages/profile/tour-booking"
 import Contact from './pages/contact/contact';
 
+import Bookingconfirm from './pages/bookingconfirm/bookingconfirm';
+
 function App() {
   return (
     <BrowserRouter>
@@ -27,9 +29,12 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/single/:id" element={<Single />} />
+          <Route path="/bookingconfirm/:id" element={<Bookingconfirm />} />
         <Route path="/myprofile" element={<Profile />}>
           <Route index element={<ProfileInfo />} /> {/* Use "index" to match the default sub-route */}
           <Route path="booking" element={<Profiletour />} />
+
+            
         </Route>
         <Route path="login" element={<Login />} />
         </Route>
