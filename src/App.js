@@ -11,8 +11,9 @@ import Product from "./pages/products/allproduct"
 
 
 import Booking from "./pages/booking/booking"
-import Profile from "./pages/profile/mainprofile"
+// import Profile from "./pages/profile/mainprofile"
 import ProfileInfo from "./pages/profile/profile"
+import Profiletour from "./pages/profile/tour-booking"
 import Contact from './pages/contact/contact';
 
 function App() {
