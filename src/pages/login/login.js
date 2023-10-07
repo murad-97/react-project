@@ -6,7 +6,7 @@ import { MyContext } from "../../layouts/master";
 
 
 const Login = () => {
-  const {handleLogin} = useContext(MyContext); // Use useContext to access the context
+  const {handleLogin,is} = useContext(MyContext); // Use useContext to access the context
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState({ email: "", password: "" });
   const [message, setMessage] = useState("");
