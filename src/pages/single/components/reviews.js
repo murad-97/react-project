@@ -1,256 +1,213 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { fetchData } from "../../profile/api";
+import axios from "axios";
+import { MyContext } from "../../../layouts/master";
+import Swal from "sweetalert2";
+import Box from '@mui/material/Box';
+import Rating from '@mui/material/Rating';
+import Typography from '@mui/material/Typography';
 
-function CustomerReviews() {
+function CustomerReviews({ id }) {
+  const tourid = id;
+  sessionStorage.setItem("tourid", tourid);
+  // const tourId = id;
+
+  const { isLoggedIn } = useContext(MyContext);
+  const [registerData, setRegisterData] = useState({
+    userId: "",
+    name: "",
+    tourId: sessionStorage.getItem("tourid"), // Initialize with props value
+    categoryId: "",
+    comment: "",
+    rating: "1", // Initialize the rating with a default value
+  });
+  const [filteredData, setFilteredData] = useState([]);
+
+  useEffect(() => {
+    fetchReviewsByTourId(tourid);
+    fetchUserData();
+  }, []);
+
+  const fetchReviewsByTourId = async (tourId) => {
+    try {
+      const response = await axios.get(
+        "https://651a6857340309952f0d3ca1.mockapi.io/comments",
+        {
+          params: {
+            tourId: tourid, // Replace with the desired tourId
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        const reviews = response.data;
+        const filteredReviews = reviews.filter(
+          (item) => item.tourId === sessionStorage.getItem("tourid")
+        );
+
+        setFilteredData(filteredReviews);
+      } else {
+        console.error("Failed to fetch reviews");
+        return [];
+      }
+    } catch (error) {
+      console.error("Error fetching reviews:", error);
+      return [];
+    }
+  };
+
+  async function fetchUserData() {
+    try {
+      const data = await fetchData(sessionStorage.getItem("userid"));
+      setRegisterData({
+        userId: data.id,
+        name: data.name,
+        tourId: sessionStorage.getItem("tourid"),
+        categoryId: sessionStorage.getItem("category"),
+        comment: "",
+        rating: "1", // Initialize the rating with a default value
+      });
+    } catch (error) {
+      // Handle error
+    }
+  }
+
+  const handleRatingChange = (e) => {
+    const selectedValue = e.target.value;
+    setRegisterData({ ...registerData, rating: selectedValue });
+  };
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setRegisterData({
+      ...registerData,
+      [id]: value,
+    });
+    console.log(registerData);
+  };
+
+  const submit = (e) => {
+    e.preventDefault(); // Prevent form submission
+
+    axios
+      .post(
+        "https://651a6857340309952f0d3ca1.mockapi.io/comments",
+        registerData
+      )
+      .then((response) => {
+        if (response.status === 201) {
+          Swal.fire({
+            icon: "success",
+            title: "Review Added",
+            text: "Your review has been added successfully!",
+          });
+          fetchReviewsByTourId(tourid);
+        } else {
+          console.error("Failed to add review");
+        }
+      })
+      .catch((error) => {
+        console.error("Error adding review:", error);
+      });
+  };
+
   return (
     <div className="container">
-    <div className="row">
-      <div className="col-lg-12">
-        <div className="write_your_review_wrapper">
-          <h3 className="heading_theme">Write your review</h3>
-          <div className="write_review_inner_boxed">
-            <form>
-              <div className="row">
-                <div className="col-lg-6">
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      className="form-control bg_input"
-                      placeholder="Enter full name"
-                    />
+      {isLoggedIn ? (
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="write_your_review_wrapper">
+              <h3 className="heading_theme">Write your review</h3>
+              <div className="write_review_inner_boxed">
+                <form onSubmit={(e) => submit(e)}>
+                  <div className="row">
+                    <div className="col-lg-12">
+                      <div className="form-group col-lg-12">
+                      <h3>Rating:</h3>
+                          <Box
+      sx={{
+        '& > legend': { mt: 2 },
+      }}
+    />
+      
+      <Rating
+        name="simple-controlled"
+        value={registerData.rating}
+        onChange={handleRatingChange}
+      />
+      <br/>                        
+      <br/>                        
+                              
+                      </div>
+                      <div className="form-group">
+                        <textarea
+                          id="comment"
+                          rows="6"
+                          placeholder="Write your comments"
+                          className="form-control bg_input"
+                          onChange={(e) => handleInputChange(e)}></textarea>
+                      </div>
+                      <br></br>
+                      <div className="comment_form_submit">
+                        <button type="submit" className="btn btn_theme btn_md">
+                          Post comment
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="col-lg-6">
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      className="form-control bg_input"
-                      placeholder="Enter email address"
-                    />
-                  </div>
-                  <br></br>
-                </div>
-               
-                <div className="col-lg-12">
-                  <div className="form-group">
-                    <textarea
-                      rows="6"
-                      placeholder="Write your comments"
-                      className="form-control bg_input"
-                    ></textarea>
-                  </div>
-                  <br></br>
-                  <div className="comment_form_submit">
-                    <button className="btn btn_theme btn_md">
-                      Post comment
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="row">
-      <div className="col-lg-12">
-        <div className="all_review_wrapper">
-          <h3 className="heading_theme">All review</h3>
-        </div>
-      </div>
-      <div className="col-lg-4 col-md-6">
-        <div className="all_review_box">
-          <div className="all_review_date_area">
-            <div className="all_review_date">
-              <h5>08 Dec, 2021</h5>
-            </div>
-            <div className="all_review_star">
-              <h5>Excellent</h5>
-              <div className="review_star_all">
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
+                </form>
               </div>
             </div>
           </div>
+        </div>
+      ) : (
+        <div className="row">
+          {" "}
+          <div className="all_review_wrapper">
+            <h3 className="heading_theme">
+              If you want to add your review Please login
+            </h3>
+          </div>
+          <div className="col-lg-4">
+            <NavLink to="/login" className="btn btn_theme btn_md">
+              Login
+            </NavLink>
+          </div>
+        </div>
+      )}
+      <div className="row">
+        <div className="col-lg-12">
+          <div className="all_review_wrapper">
+            <h3 className="heading_theme">All review</h3>
+          </div>
+        </div>
+        {filteredData.map((ele) => (
+          <div className="col-lg-4 col-md-6" key={ele.id}>
+            <div className="all_review_box">
 
-          <div className="all_review_text">
-            <img src="assets/img/review/review1.png" alt="img" />
-            <h4>Manresh Chandra</h4>
-            <p>
-              "Loved the overall tour for all 6 days covering Jaipur,
-              Jodhpur, and Jaisalmer. Worth your money for sure. Thanks.
-              The driver was very good and polite, and safe driving for
-              all 6 days. On-time pickup and drop overall. Thanks for it."
-            </p>
-          </div>
-          <div className="all_review_small_img">
-            <div className="all_review_small_img_item">
-              <img src="assets/img/review/review-small1.png" alt="img" />
-            </div>
-            <div className="all_review_small_img_item">
-              <img src="assets/img/review/review-small2.png" alt="img" />
-            </div>
-            <div className="all_review_small_img_item">
-              <img src="assets/img/review/review-small3.png" alt="img" />
-            </div>
-            <div className="all_review_small_img_item">
-              <img src="assets/img/review/review-small4.png" alt="img" />
-            </div>
-            <div className="all_review_small_img_item">
-              <img src="assets/img/review/review-small5.png" alt="img" />
-            </div>
-            <div className="all_review_small_img_item">
-              <h5>+5</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-lg-4 col-md-6">
-        <div className="all_review_box">
-          <div className="all_review_date_area">
-            <div className="all_review_date">
-              <h5>08 Dec, 2021</h5>
-            </div>
-            <div className="all_review_star">
-              <h5>Excellent</h5>
-              <div className="review_star_all">
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
+              <div className="all_review_text">
+                <img src="https://cdn-icons-png.flaticon.com/512/3541/3541871.png" alt="img" />
+            
+               
+               
+            
+               
+              
+                <h4>{ele.name}</h4>
+                  <div className="review_star_all">
+                  {Array(5).fill().map((_, index) => (
+  <i key={index} className={index < ele.rating ? "fas fa-star" : "far fa-star"}></i>
+))}
+                  </div>
+                <p>{ele.comment}</p>
               </div>
+             
             </div>
           </div>
-          <div className="all_review_text">
-            <img src="assets/img/review/review2.png" alt="img" />
-            <h4>Michel Falak</h4>
-            <p>
-              "Loved the overall tour for all 6 days covering Jaipur,
-              Jodhpur, and Jaisalmer. It's worth your money for sure.
-              Thanks. The driver was very good and polite, ensuring safe
-              driving for all 6 days. On-time pickup and drop overall.
-              Thanks for it."
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="col-lg-4 col-md-6">
-        <div className="all_review_box">
-          <div className="all_review_date_area">
-            <div className="all_review_date">
-              <h5>08 Dec, 2021</h5>
-            </div>
-            <div className="all_review_star">
-              <h5>Excellent</h5>
-              <div className="review_star_all">
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-              </div>
-            </div>
-          </div>
-          <div className="all_review_text">
-            <img src="assets/img/review/review3.png" alt="img" />
-            <h4>Chester dals</h4>
-            <p>
-              " Loved the overall tour for all 6 days covering jaipur
-              jodhpur and jaisalmer. worth ur money for sure. thanks.
-              Driver was very good and polite and safe driving for all 6
-              days. on time pickup and drop overall. Thanks for it. "
-            </p>
-          </div>
-          <div className="all_review_small_img">
-            <div className="all_review_small_img_item">
-              <img src="assets/img/review/review-small1.png" alt="img" />
-            </div>
-            <div className="all_review_small_img_item">
-              <img src="assets/img/review/review-small2.png" alt="img" />
-            </div>
-            <div className="all_review_small_img_item">
-              <img src="assets/img/review/review-small5.png" alt="img" />
-            </div>
-            <div className="all_review_small_img_item">
-              <h5>+15</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-lg-4 col-md-6">
-        <div className="all_review_box">
-          <div className="all_review_date_area">
-            <div className="all_review_date">
-              <h5>08 Dec, 2021</h5>
-            </div>
-            <div className="all_review_star">
-              <h5>Excellent</h5>
-              <div className="review_star_all">
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-              </div>
-            </div>
-          </div>
-          <div className="all_review_text">
-            <img src="assets/img/review/review4.png" alt="img" />
-            <h4>Casper mike</h4>
-            <p>
-              " Loved the overall tour for all 6 days covering jaipur
-              jodhpur and jaisalmer. worth ur money for sure. thanks.
-              Driver was very good and polite and safe driving for all 6
-              days. on time pickup and drop overall. Thanks for it. "
-            </p>
-          </div>
-          <div className="all_review_small_img">
-            <div className="all_review_small_img_item">
-              <img src="assets/img/review/review-small4.png" alt="img" />
-            </div>
-            <div className="all_review_small_img_item">
-              <img src="assets/img/review/review-small5.png" alt="img" />
-            </div>
-            <div className="all_review_small_img_item">
-              <h5>+19</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-lg-4 col-md-6">
-        <div className="all_review_box">
-          <div className="all_review_date_area">
-            <div className="all_review_date">
-              <h5>08 Dec, 2021</h5>
-            </div>
-            <div className="all_review_star">
-              <h5>Excellent</h5>
-              <div className="review_star_all">
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-              </div>
-            </div>
-          </div>
-          <div className="all_review_text">
-            <img src="assets/img/review/review5.png" alt="img" />
-            <h4>Jason bruno</h4>
-            <p>
-              " Loved the overall tour for all 6 days covering jaipur
-              jodhpur and jaisalmer. worth ur money for sure. thanks.
-              Driver was very good and polite and safe driving for all 6
-              days. on time pickup and drop overall. Thanks for it. "
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
-  </div>
   );
 }
 

@@ -156,7 +156,7 @@ function Single() {
         </div>
         <div className="col-lg-11" style={{ marginLeft: "55px" }}>
           {/* Reviews  Component */}
-          <CustomerReviews />
+          <CustomerReviews  id = {categoryData.id} />
         </div>
       </section>
 
@@ -168,7 +168,7 @@ function Single() {
             <div className="col-lg-7">
               <div className="cta_left">
               <div className="cta_icon">
-              <img src="https://andit.co/projects/html/and-tour/demo/assets/img/common/email.png" alt="icon"/>
+              <img src="http://localhost:3000/assets/img/common/email.png" alt="icon"/>
               </div>
                 <div className="cta_content">
                   <h4>Get the latest news and offers</h4>
