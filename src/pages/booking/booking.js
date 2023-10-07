@@ -169,6 +169,24 @@ function Booking() {
 
     return (
         <>
+         <section id="common_banner">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="common_bannner_text">
+                                <h2>Booking submission</h2>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><span><i className="fas fa-circle"></i></span><a href="tour-search.html">Tours</a></li>
+                                    <li><span><i className="fas fa-circle"></i></span><a href="tour-details.html">{categoryData.name}</a>
+                                    </li>
+                                    <li><span><i className="fas fa-circle"></i></span> Booking</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section id="tour_booking_submission" className="section_padding">
                 <div className="container">
                     <div className="row">
@@ -298,6 +316,36 @@ function Booking() {
                                 </div>
                                 {/* <Comp3 /> */}
                             </div>
+                            <div className="col-lg-12" >
+                         <div className="tour_detail_right_sidebar">
+                                     <div className="tour_details_right_boxed">
+                                         <div className="tour_details_right_box_heading">
+                                             <h3>Booking amount</h3>
+                                         </div>
+                        
+                                         <div className="tour_booking_amount_area">
+                                             <ul>
+                                                 <li>Adult Price x {data.adult} <span>${categoryData.price}</span></li>
+                                                 <li>Children Price x {data.children} <span>${categoryData.price} * .5</span></li>
+                                                 <li>Infant Price x {data.infant} <span>${categoryData.price} * .1</span></li>
+                                                 <li>Discount <span>-10%</span></li>
+                                                 <li>Tax<span>5%</span></li>
+                                             </ul>
+                                             {/* <div className="tour_bokking_subtotal_area">
+                                                 <h6>Subtotal <span>${categoryData.price * .95 * data.adult + categoryData.price * .1 + categoryData.price * .1 }</span></h6>
+                                             </div> */}
+                                             {/* <div className="coupon_add_area">
+                                                 <h6><span className="remove_coupon_tour">Remove</span> Coupon code (OFF 5000)
+                                                     <span>$5,000.00</span>
+                                                 </h6>
+                                             </div> */}
+                                             <div className="total_subtotal_booking">
+                                                 <h6>Total Amount <span>${categoryData.price * .95 * data.adult + (data.children * categoryData.price * .5) + (data.infant * categoryData.price * .1)}</span> </h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                       </div>
                         </div>
                         {/* <TourDetails
                             name={categoryData.name}
@@ -350,14 +398,83 @@ function Booking() {
                                     </div>
                                 </div>
                                
+                                <div className="tour_detail_right_sidebar">
+                                    <div className="tour_details_right_boxed">
+                                        <div className="tour_details_right_box_heading">
+                                            <h3>Tourist</h3>
+                                        </div>
+                                        {/* <div className="edit_date_form">
+                                            <div className="form-group">
+                                                <label for="dates">Edit Date</label>
+                                                <input value={data.date}
+                                                    onChange={handleInputChange}
+                                                    name="date" type="date" id="dates" className="form-control" />
+                                            </div>
+                                        </div> */}
+                                        <div className="tour_package_details_bar_list">
+                                        
+                                            <div className="select_person_item">
+                                                <div className="select_person_left">
+                                                    <h6>Adult</h6>
+
+                                                    <p>12y+</p>
+                                                </div>
+                                                <div className="select_person_right">
+                                                    {/* <h6>01</h6> */}
+                                                    <input value={data.adult}
+                                                        onChange={handleInputChange}
+                                                        name="adult" type="number" className="form-control" />
+                                                </div>
+                                            </div>
+
+                                            <div className="select_person_item">
+                                                <div className="select_person_left">
+                                                    <h6>Children</h6>
+                                                    <p>2 - 12 years</p>
+                                                </div>
+                                                <div className="select_person_right">
+                                                    {/* <h6>01</h6> */}
+                                                    <input value={data.children}
+                                                        onChange={handleInputChange}
+                                                        name="children" type="number" className="form-control" />
+                                                </div>
+                                            </div>
+                                            <div className="select_person_item">
+                                                <div className="select_person_left">
+                                                    <h6>Infant</h6>
+                                                    <p>Below 2 years</p>
+                                                </div>
+                                                <div className="select_person_right">
+                                                    {/* <h6>01</h6> */}
+                                                    <input value={data.infant}
+                                                        onChange={handleInputChange}
+                                                        name="infant" type="number" className="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/* <div className="edit_person">
+                                            <p>Edit person</p>
+                                        </div> */}
+                                    </div>
+                                </div>
                              
                                 
                             </div>
+                        
                         </div>
+                       
                         {/* <Comp4 /> */}
                     </div>
                 </div>
             </section>
+
+
+
+
+
+
+
+            
         </>
     )
 }
