@@ -323,7 +323,7 @@ function Bookingconfirm() {
             <div className="col-lg-7">
               <div className="cta_left">
                 <div className="cta_icon">
-                  <img src="assets/img/common/email.png" alt="icon" />
+                  <img src="http://localhost:3000/assets/img/common/email.png" alt="icon" />
                 </div>
                 <div className="cta_content">
                   <h4>Get the latest news and offers</h4>

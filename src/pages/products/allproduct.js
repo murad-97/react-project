@@ -6,12 +6,21 @@ import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-const Products = () => {
+const Products = ({ onSearch }) => {
   const [categoryData, setData] = useState([]);
   const { id } = useParams();
   const toursPerPage = 6; // Number of tours to display per page
   const [currentPage, setCurrentPage] = useState(1);
-  
+
+  const [query, setQuery] = useState("");
+
+  const handleInputChange = (e) => {
+    setQuery(e.target.value);
+  };
+
+  const handleSearch = () => {
+    onSearch(query);
+  };
 
   sessionStorage.setItem("category", id);
 
@@ -123,7 +132,7 @@ const Products = () => {
                                   <p>Destination</p>
                                   <input
                                     type="text"
-                                    placeholder="Where are you going?"
+                                    placeholder="Search..."
                                   />
                                   <span>Where are you going?</span>
                                 </div>
