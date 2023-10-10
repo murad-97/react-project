@@ -34,7 +34,7 @@ function Layout({ children }) {
   return (
     <>
     <MyContext.Provider value={{ isLoggedIn, handleLogout,handleLogin }}>
-    <div class="preloader">
+    {/* <div class="preloader">
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="lds-spinner">
@@ -53,7 +53,7 @@ function Layout({ children }) {
                 </div>
             </div>
         </div>
-    </div>
+    </div> */}
       <Header isLoggedIn={isLoggedIn} handleLogout={handleLogout}/> 
       {children}
       <Footer /> 

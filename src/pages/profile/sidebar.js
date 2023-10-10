@@ -15,7 +15,7 @@ const Sidebar = ({registerData}) => {
       <div className="col-lg-4">
         <div className="dashboard_sidebar">
           <div className="dashboard_sidebar_user">
-            <img src="https://cdn-icons-png.flaticon.com/512/3541/3541871.png" alt="img" />
+            <img src="https://static.thenounproject.com/png/5034901-200.png" alt="img" />
             <h3>{registerData.name}</h3>
             <p>
               <a href="tel:+00-123-456-789">{registerData.phone}</a>

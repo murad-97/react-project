@@ -187,7 +187,7 @@ function CustomerReviews({ id }) {
             <div className="all_review_box">
 
               <div className="all_review_text">
-                <img src="https://cdn-icons-png.flaticon.com/512/3541/3541871.png" alt="img" />
+                <img src="https://static.thenounproject.com/png/5034901-200.png" alt="img" />
             
                
                
