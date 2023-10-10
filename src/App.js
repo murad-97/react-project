@@ -30,13 +30,13 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/single/:id" element={<Single />} />
           <Route path="/bookingconfirm/:id" element={<Bookingconfirm />} />
-        <Route path="/myprofile" element={<Profile />}>
-          <Route index element={<ProfileInfo />} /> {/* Use "index" to match the default sub-route */}
-          <Route path="booking" element={<Profiletour />} />
+          <Route path="/myprofile" element={<Profile />}>
+            <Route index element={<ProfileInfo />} /> {/* Use "index" to match the default sub-route */}
+            <Route path="booking" element={<Profiletour />} />
 
-            
-        </Route>
-        <Route path="login" element={<Login />} />
+
+          </Route>
+          <Route path="login" element={<Login />} />
         </Route>
 
 

@@ -2,22 +2,21 @@ import React, { useEffect, useState, useContext } from "react";
 import { MyContext } from "../../layouts/master";
 // import { saveCurrentUrl } from '../../common/utility';
 import axios from "axios";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 import { useNavigate, Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 function Booking() {
     const datesubmitted = new Date();
-    const formattedDate = datesubmitted.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: '2-digit',
+    const formattedDate = datesubmitted.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "2-digit",
     });
     const bookingid = parseInt(Date.now() * Math.random()).toString();
 
     sessionStorage.setItem("formattedDate", formattedDate);
     sessionStorage.setItem("bookingid", bookingid);
-
 
     const { isLoggedIn, handleLogout } = useContext(MyContext);
 
@@ -44,7 +43,7 @@ function Booking() {
 
     const [selectedTour, setselectedTour] = useState([]);
     const [categoryData, setData] = useState([]);
-    const [isTourAlreadyBooked, setIsTourAlreadyBooked] = useState(false);// Declare isTourAlreadyBooked with useState
+    const [isTourAlreadyBooked, setIsTourAlreadyBooked] = useState(false); // Declare isTourAlreadyBooked with useState
 
     const showAlert = (title, text, icon) => {
         Swal.fire({
@@ -57,16 +56,16 @@ function Booking() {
     useEffect(() => {
         if (!isLoggedIn) {
             Swal.fire({
-                title: 'You must log in',
-                text: 'Please log in to continue.',
-                icon: 'warning',
+                title: "You must log in",
+                text: "Please log in to continue.",
+                icon: "warning",
                 showCancelButton: true,
-                confirmButtonText: 'Log In',
-                cancelButtonText: 'Cancel',
+                confirmButtonText: "Log In",
+                cancelButtonText: "Cancel",
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Redirect the user to the login page here
-                    navigate("/login") // Change the URL as needed
+                    navigate("/login"); // Change the URL as needed
                 } else if (result.dismiss === Swal.DismissReason.cancel) {
                     // If the user clicked "Cancel," go back to the previous page
                     navigate(-1);
@@ -75,7 +74,6 @@ function Booking() {
                     navigate(-1);
                 }
             });
-
         }
         fetchData();
     }, []);
@@ -136,12 +134,16 @@ function Booking() {
             const secondResponse = await axios.get(
                 `https://651a6056340309952f0d2d66.mockapi.io/Category/${category}`
             );
-            const selectedTour = secondResponse.data.tour.find((tour) => tour.id === id);
+            const selectedTour = secondResponse.data.tour.find(
+                (tour) => tour.id === id
+            );
             setData(selectedTour);
             setselectedTour(selectedTour);
             console.log(data.name);
             // Update the isTourAlreadyBooked state based on the booking data
-            const isAlreadyBooked = data.booking?.some((booking) => booking.id === id);
+            const isAlreadyBooked = data.booking?.some(
+                (booking) => booking.id === id
+            );
             setIsTourAlreadyBooked(isAlreadyBooked);
 
             const updatedBookingArray = [...data.booking];
@@ -152,23 +154,11 @@ function Booking() {
                 ...data,
                 booking: updatedBookingArray,
             });
-
-
-
         } catch (error) {
             // Handle any errors that might occur during the request
             console.error("Error fetching data:", error);
         }
     }
-
-
-
-
-
-
-
-
-
 
     console.log(isTourAlreadyBooked);
     const handleInputChange = (e) => {
@@ -179,13 +169,12 @@ function Booking() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-
         if (!isTourAlreadyBooked) {
-
-
             try {
                 await axios.put(
-                    `https://651a6344340309952f0d333a.mockapi.io/hasan/${sessionStorage.getItem("userid")}`,
+                    `https://651a6344340309952f0d333a.mockapi.io/hasan/${sessionStorage.getItem(
+                        "userid"
+                    )}`,
                     data,
                     {
                         headers: {
@@ -193,15 +182,32 @@ function Booking() {
                         },
                     }
                 );
-                showAlert('Success!', 'Your info updated successfully!', 'success');
+                Swal.fire({
+                    title: "You have booked this tour",
+                    text: "Thank for choosing us",
+                    icon: "success",
+                    showCancelButton: true,
+                    confirmButtonText: "Continue ",
+                    cancelButtonText: "Cancel",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Redirect the user to the login page here
+                        navigate(`/bookingconfirm/${id}`); // Change the URL as needed
+                    } else if (result.dismiss === Swal.DismissReason.cancel) {
+                        // If the user clicked "Cancel," go back to the previous page
+                        navigate(-1);
+                    } else if (result.dismiss === Swal.DismissReason.backdrop) {
+                        // If the user clicked outside the Swal border, go back to the previous page
+                        navigate(-1);
+                    }
+                });
                 console.log("Registration successful!");
                 fetchData();
             } catch (error) {
                 console.error("Error during registration:", error);
-
             }
         } else {
-            showAlert('Sorry!', 'You have already booked this tour!', 'error');
+            showAlert("Sorry!", "You have already booked this tour!", "error");
         }
     };
 
@@ -214,13 +220,29 @@ function Booking() {
                             <div className="common_bannner_text">
                                 <h2>Booking submission</h2>
                                 <ul>
-
-                                    <li><Link to="/">Home</Link></li>
-                                    <li><span><i className="fas fa-circle"></i></span><Link to={`/single/${categoryData.id}`}>Tours</Link></li>
-                                    <li><span><i className="fas fa-circle"></i></span><Link to={`/single/${categoryData.id}`}>{categoryData.name}</Link>
-
+                                    <li>
+                                        <Link to="/">Home</Link>
                                     </li>
-                                    <li><span><i className="fas fa-circle"></i></span> Booking</li>
+                                    <li>
+                                        <span>
+                                            <i className="fas fa-circle"></i>
+                                        </span>
+                                        <Link to={`/single/${categoryData.id}`}>Tours</Link>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <i className="fas fa-circle"></i>
+                                        </span>
+                                        <Link to={`/single/${categoryData.id}`}>
+                                            {categoryData.name}
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <i className="fas fa-circle"></i>
+                                        </span>{" "}
+                                        Booking
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -233,20 +255,20 @@ function Booking() {
                         <div className="col-lg-8">
                             <h3 className="heading_theme">Booking submission</h3>
                             <div className="tou_booking_form_Wrapper">
-
                                 <div className="booking_tour_form">
                                     <div className="tour_booking_form_box">
                                         <form onSubmit={handleSubmit} id="tour_bookking_form_item">
                                             <div className="row">
                                                 <div className="col-lg-6">
-
-
                                                     <div className="form-group">
-                                                        <input value={data.name}
+                                                        <input
+                                                            value={data.name}
                                                             onChange={handleInputChange}
                                                             name="name"
-                                                            type="text" className="form-control bg_input"
-                                                            placeholder="First name*" />
+                                                            type="text"
+                                                            className="form-control bg_input"
+                                                            placeholder="First name*"
+                                                        />
                                                     </div>
                                                 </div>
                                                 {/* <div className="col-lg-6">
@@ -264,59 +286,79 @@ function Booking() {
                                                             value={data.email}
                                                             onChange={handleInputChange}
                                                             name="email"
-                                                            type="text" className="form-control bg_input"
-                                                            placeholder="Email address (Optional)" />
+                                                            type="text"
+                                                            className="form-control bg_input"
+                                                            placeholder="Email address (Optional)"
+                                                        />
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-6">
                                                     <div className="form-group">
-                                                        <input value={data.phone}
+                                                        <input
+                                                            value={data.phone}
                                                             onChange={handleInputChange}
                                                             name="phone"
-                                                            type="text" className="form-control bg_input"
-                                                            placeholder="Mobile number*" />
+                                                            type="text"
+                                                            className="form-control bg_input"
+                                                            placeholder="Mobile number*"
+                                                        />
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-12">
                                                     <div className="form-group">
-                                                        <input value={data.address}
+                                                        <input
+                                                            value={data.address}
                                                             name="address"
-                                                            onChange={handleInputChange} type="text" className="form-control bg_input"
-                                                            placeholder="Street address" />
+                                                            onChange={handleInputChange}
+                                                            type="text"
+                                                            className="form-control bg_input"
+                                                            placeholder="Street address"
+                                                        />
                                                     </div>
                                                 </div>
 
                                                 <div className="col-lg-6">
                                                     <div className="form-group">
-                                                        <input value={data.State}
+                                                        <input
+                                                            value={data.State}
                                                             name="State"
-                                                            onChange={handleInputChange} type="text" className="form-control bg_input"
-                                                            placeholder="State" />
+                                                            onChange={handleInputChange}
+                                                            type="text"
+                                                            className="form-control bg_input"
+                                                            placeholder="State"
+                                                        />
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-6">
                                                     <div className="form-group">
-                                                        <input value={data.Country}
+                                                        <input
+                                                            value={data.Country}
                                                             name="Country"
-                                                            onChange={handleInputChange} type="text" className="form-control bg_input"
-                                                            placeholder="Country" />
+                                                            onChange={handleInputChange}
+                                                            type="text"
+                                                            className="form-control bg_input"
+                                                            placeholder="Country"
+                                                        />
                                                     </div>
                                                 </div>
                                                 <div className="form-group">
-                                                    <input value={data.bookingid || bookingid}
+                                                    <input
+                                                        value={data.bookingid || bookingid}
                                                         readOnly
                                                         onChange={handleInputChange}
                                                         name="bookingid"
-                                                        type="text" className="form-control bg_input"
+                                                        type="text"
+                                                        className="form-control bg_input"
                                                     />
                                                 </div>
                                                 <div className="form-group">
-                                                    <input value={data.formattedDate || formattedDate}
+                                                    <input
+                                                        value={data.formattedDate || formattedDate}
                                                         readOnly
-
                                                         onChange={handleInputChange}
                                                         name="formattedDate"
-                                                        type="text" className="form-control bg_input"
+                                                        type="text"
+                                                        className="form-control bg_input"
                                                     />
                                                 </div>
                                                 {/* <div className="col-lg-6">
@@ -360,7 +402,6 @@ function Booking() {
                                                         </select>
                                                     </div>
                                                 </div> */}
-
                                             </div>
                                             {/* <label className="form-check-label" for="flexCheckDefaultf1">
                       <span className="main_spical_check">
@@ -368,27 +409,20 @@ function Booking() {
                               conditios</a></span>
                       </span>
                   </label> */}
-                                            <Link type="submit"
-                                                // to="/booking"
-                                                to={`/bookingconfirm/${id}`}
-                                                className="btn btn_theme btn_md w-100"
-                                            >
-                                                Book Now
-                                            </Link>
 
-                                            {/* <button type="submit" href="booking-confirmation.html" className="btn btn_theme btn_md"><Link
-                                                // to="/booking"
-                                                to={`/bookingconfirm/${id}`}
-                                                className="btn btn_theme btn_md w-100"
+                                            <button
+                                                type="submit"
+
+                                                className="btn btn_theme btn_md"
                                             >
-                                                Book Now
-                                            </Link></button> */}
+BOOK NOW
+                                            </button>
                                         </form>
                                     </div>
                                 </div>
                                 {/* <Comp3 /> */}
                             </div>
-                            <div className="col-lg-12" >
+                            <div className="col-lg-12">
                                 <div className="tour_detail_right_sidebar">
                                     <div className="tour_details_right_boxed">
                                         <div className="tour_details_right_box_heading">
@@ -397,11 +431,24 @@ function Booking() {
 
                                         <div className="tour_booking_amount_area">
                                             <ul>
-                                                <li>Adult Price x {data.adult} <span>${categoryData.price}</span></li>
-                                                <li>Children Price x {data.children} <span>${categoryData.price} * .5</span></li>
-                                                <li>Infant Price x {data.infant} <span>${categoryData.price} * .1</span></li>
-                                                <li>Discount <span>-10%</span></li>
-                                                <li>Tax<span>5%</span></li>
+                                                <li>
+                                                    Adult Price x {data.adult}{" "}
+                                                    <span>${categoryData.price}</span>
+                                                </li>
+                                                <li>
+                                                    Children Price x {data.children}{" "}
+                                                    <span>${categoryData.price} * .5</span>
+                                                </li>
+                                                <li>
+                                                    Infant Price x {data.infant}{" "}
+                                                    <span>${categoryData.price} * .1</span>
+                                                </li>
+                                                <li>
+                                                    Discount <span>-10%</span>
+                                                </li>
+                                                <li>
+                                                    Tax<span>5%</span>
+                                                </li>
                                             </ul>
                                             {/* <div className="tour_bokking_subtotal_area">
                                                  <h6>Subtotal <span>${categoryData.price * .95 * data.adult + categoryData.price * .1 + categoryData.price * .1 }</span></h6>
@@ -412,7 +459,15 @@ function Booking() {
                                                  </h6>
                                              </div> */}
                                             <div className="total_subtotal_booking">
-                                                <h6>Total Amount <span>${categoryData.price * .95 * data.adult + (data.children * categoryData.price * .5) + (data.infant * categoryData.price * .1)}</span> </h6>
+                                                <h6>
+                                                    Total Amount{" "}
+                                                    <span>
+                                                        $
+                                                        {categoryData.price * 0.95 * data.adult +
+                                                            data.children * categoryData.price * 0.5 +
+                                                            data.infant * categoryData.price * 0.1}
+                                                    </span>{" "}
+                                                </h6>
                                             </div>
                                         </div>
                                     </div>
@@ -452,19 +507,21 @@ function Booking() {
                                             <ul>
                                                 {/* <OntheSide valid_from={categoryData.valid_from} valid_till={categoryData.valid_till} price={categoryData.price} overview={categoryData} /> */}
 
-                                                {categoryData && categoryData.tour_details && categoryData.tour_details.map((detail, index) => (
-                                                    <li key={index}>
-                                                        <i className="fas fa-circle"></i> {detail.note}
-                                                    </li>
-                                                ))}
-
+                                                {categoryData &&
+                                                    categoryData.tour_details &&
+                                                    categoryData.tour_details.map((detail, index) => (
+                                                        <li key={index}>
+                                                            <i className="fas fa-circle"></i> {detail.note}
+                                                        </li>
+                                                    ))}
                                             </ul>
                                         </div>
                                         <div className="tour_package_details_bar_price">
                                             <h5>Price</h5>
                                             <div className="tour_package_bar_price">
-
-                                                <h3>$ {selectedTour.price} <sub>/Per serson</sub> </h3>
+                                                <h3>
+                                                    $ {selectedTour.price} <sub>/Per serson</sub>{" "}
+                                                </h3>
                                             </div>
                                         </div>
                                     </div>
@@ -496,7 +553,6 @@ function Booking() {
                                             </div>
                                         </div> */}
                                         <div className="tour_package_details_bar_list">
-
                                             <div className="select_person_item">
                                                 <div className="select_person_left">
                                                     <h6>Adult</h6>
@@ -505,10 +561,14 @@ function Booking() {
                                                 </div>
                                                 <div className="select_person_right">
                                                     {/* <h6>01</h6> */}
-                                                    <input value={data.adult}
+                                                    <input
+                                                        value={data.adult}
                                                         // defaultValue={1}
                                                         onChange={handleInputChange}
-                                                        name="adult" type="number" className="form-control" />
+                                                        name="adult"
+                                                        type="number"
+                                                        className="form-control"
+                                                    />
                                                 </div>
                                             </div>
 
@@ -519,10 +579,14 @@ function Booking() {
                                                 </div>
                                                 <div className="select_person_right">
                                                     {/* <h6>01</h6> */}
-                                                    <input value={data.children}
+                                                    <input
+                                                        value={data.children}
                                                         // defaultValue = {0}
                                                         onChange={handleInputChange}
-                                                        name="children" type="number" className="form-control" />
+                                                        name="children"
+                                                        type="number"
+                                                        className="form-control"
+                                                    />
                                                 </div>
                                             </div>
                                             <div className="select_person_item">
@@ -532,10 +596,14 @@ function Booking() {
                                                 </div>
                                                 <div className="select_person_right">
                                                     {/* <h6>01</h6> */}
-                                                    <input value={data.infant}
+                                                    <input
+                                                        value={data.infant}
                                                         // defaultValue={0}
                                                         onChange={handleInputChange}
-                                                        name="infant" type="number" className="form-control" />
+                                                        name="infant"
+                                                        type="number"
+                                                        className="form-control"
+                                                    />
                                                 </div>
                                             </div>
                                         </div>
@@ -544,26 +612,15 @@ function Booking() {
                                         </div> */}
                                     </div>
                                 </div>
-
-
                             </div>
-
                         </div>
 
                         {/* <Comp4 /> */}
                     </div>
                 </div>
             </section>
-
-
-
-
-
-
-
-
         </>
-    )
+    );
 }
 
-export default Booking
+export default Booking;
